@@ -1,0 +1,65 @@
+﻿ <Project Sdk="Microsoft.NET.Sdk"> 
+
+  <PropertyGroup>
+    <!--
+    We want to be as strict as possible on warnings, so we will treat them as errors. Why? Because
+    warnings in the right circumstances (runtime or compiletime) can *actually* be errors (or bugs).
+    -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <!--
+    That said, these warnings regarding versioning and obsolesence tend to be too noisy
+    -->
+    <NoWarn>1701;1702;1591;NU1605;S4823</NoWarn>
+    <LangVersion>latest</LangVersion>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+    <!-- SonarQube needs this -->
+     <ProjectGuid>{75E8A330-0286-4B3E-8A25-26AF65098646}</ProjectGuid>
+    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+  </PropertyGroup>
+    <PropertyGroup>
+    <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.1.19" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.7" />
+    <PackageReference Include="coverlet.msbuild" Version="3.1.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.7" />
+    <PackageReference Include="Tlm.Sdk.Testing.Unit" Version="13.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <Content Include="..\testsettings.shared.json" Link="testsettings.shared.json">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+     <ProjectReference Include="..\Adapters.Rite.Site\Adapters.Rite.Site.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Data\FacilityDummy.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\MateoSiteList.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\OrganizationDetailResponse.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="testsettings.shared.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <!-- Mark the project as being a test project -->
+    <SonarQubeTestProject>true</SonarQubeTestProject>
+  </PropertyGroup>
+</Project>

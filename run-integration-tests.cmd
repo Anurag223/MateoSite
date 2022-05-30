@@ -1,0 +1,1 @@
+dotnet test --filter TestCategory=Integration Mateo.sln

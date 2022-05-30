@@ -1,0 +1,527 @@
+version: '2.2'
+
+services:
+  adapters.masterdata:
+    image: azr6382cr01.azurecr.io/mateo2/adapters.masterdata:${IMAGE_TAG}
+    container_name: mateo2.adapters.masterdata
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__DataStorage__BasePath=${ROOTCONFIG__DATASTORAGE__BASEPATH}
+      - RootConfig__DataStorage__FileNames__MasterData=${ROOTCONFIG__DATASTORAGE__FILENAMES__MASTERDATA}
+      - RootConfig__ServiceClients__MasterDataEpicsLevel__Uri=${ROOTCONFIG__SERVICECLIENTS__MASTERDATAEPICSLEVEL__URI}
+      - RootConfig__ServiceClients__MasterDataEpicsLevel__Domain=${ROOTCONFIG__SERVICECLIENTS__MASTERDATAEPICSLEVEL__DOMAIN}
+      - RootConfig__ServiceClients__MasterDataEpicsLevel__UserId=${ROOTCONFIG__SERVICECLIENTS__MASTERDATAEPICSLEVEL__USERID}
+      - RootConfig__ServiceClients__MasterDataEpicsLevel__Password=${ROOTCONFIG__SERVICECLIENTS__MASTERDATAEPICSLEVEL__PASSWORD}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    networks:
+      - tlm.fed.net
+    restart: unless-stopped
+    ports:
+      - "8171:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 0.5
+    mem_limit: 5g
+
+  masterdata.api:
+    image: azr6382cr01.azurecr.io/mateo2/masterdata.api:${IMAGE_TAG}
+    container_name: mateo2.masterdata.api
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - RootConfig__Security__IdentityServerUrl=${ROOTCONFIG__SECURITY__IDENTITYSERVERURL}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    networks:
+      - tlm.fed.net
+    restart: unless-stopped
+    ports:
+      - "8172:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 1
+    mem_limit: 3g
+
+  equipment.api:
+    image: azr6382cr01.azurecr.io/mateo2/equipment.api:${IMAGE_TAG_EQUIPMENT_API}
+    container_name: mateo2.equipment.api
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - RootConfig__Security__IdentityServerUrl=${ROOTCONFIG__SECURITY__IDENTITYSERVERURL}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    networks:
+      - tlm.fed.net
+    restart: unless-stopped
+    ports:
+      - "8176:80"
+      - "8100:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 1
+    mem_limit: 3g
+
+
+  equipment.federator:
+    image: azr6382cr01.azurecr.io/mateo2/equipment.federator:${IMAGE_TAG}
+    container_name: mateo2.equipment.federator
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    hostname: equipment.federator
+    networks:
+      - tlm.fed.net
+    ports:
+      - "8178:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 0.5
+    mem_limit: 1g
+
+  equipment.composer:
+    image: azr6382cr01.azurecr.io/mateo2/equipment.composer:${IMAGE_TAG}
+    container_name: mateo2.equipment.composer
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    hostname: equipmentcomposer
+    networks:
+      - tlm.fed.net
+    ports:
+      - "8174:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 2
+    mem_limit: 5g
+
+  adapters.qtrac.equipment:
+    image: azr6382cr01.azurecr.io/mateo2/adapters.equipment.qtrac:${IMAGE_TAG}
+    container_name: mateo2.adapters.qtrac.equipment
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - RootConfig__Qtrac__ConnectionString=${ROOTCONFIG__QTRAC__CONNECTIONSTRING}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    networks:
+      - tlm.fed.net
+    ports:
+      - "8175:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 1
+    mem_limit: 5g
+  
+  adapters.maximo.equipment:
+    image: azr6382cr01.azurecr.io/mateo2/adapters.equipment.maximo:${IMAGE_TAG}
+    container_name: mateo2.adapters.maximo.equipment
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Maximo__Password=${ROOTCONFIG__MAXIMO__PASSWORD}
+      - RootConfig__Maximo__EquipmentUrl=${ROOTCONFIG__MAXIMO__EQUIPMENTURL}
+      - RootConfig__Maximo__WorkorderUrl=${ROOTCONFIG__MAXIMO__WORKORDERURL}
+      - RootConfig__Maximo__User=${ROOTCONFIG__MAXIMO__USER}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    networks:
+      - tlm.fed.net
+    ports:
+      - "8177:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 1
+    mem_limit: 5g
+
+  equipmentdemand.api:
+    image: azr6382cr01.azurecr.io/mateo2/equipmentdemand.api:${IMAGE_TAG}
+    container_name: mateo2.equipmentdemand.api
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - RootConfig__Security__IdentityServerUrl=${ROOTCONFIG__SECURITY__IDENTITYSERVERURL}
+      - RootConfig__Security__MateoIdentityClientId=${ROOTCONFIG__SECURITY__MATEOIDENTITYCLIENTID}
+      - RootConfig__Security__MateoIdentityClientSecret=${ROOTCONFIG__SECURITY__MATEOIDENTITYCLIENTSECRET}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    networks:
+      - tlm.fed.net
+    restart: unless-stopped
+    ports:
+      - "8115:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 1
+    mem_limit: 3g
+
+  adapters.maximo.workorders:
+    image: azr6382cr01.azurecr.io/mateo2/adapters.workorders.maximo:${IMAGE_TAG}
+    container_name: mateo2.adapters.maximo.workorders
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Maximo__Password=${ROOTCONFIG__MAXIMO__PASSWORD}
+      - RootConfig__Maximo__EquipmentUrl=${ROOTCONFIG__MAXIMO__EQUIPMENTURL}
+      - RootConfig__Maximo__WorkorderUrl=${ROOTCONFIG__MAXIMO__WORKORDERURL}
+      - RootConfig__Maximo__WorkorderPatchUrl=${ROOTCONFIG__MAXIMO__WORKORDERPATCHURL}
+      - RootConfig__Maximo__User=${ROOTCONFIG__MAXIMO__USER}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    networks:
+      - tlm.fed.net
+    ports:
+      - "8181:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 1
+    mem_limit: 5g
+
+  workorder.composer:
+    image: azr6382cr01.azurecr.io/mateo2/workorders.composer:${IMAGE_TAG}
+    container_name: mateo2.workorders.composer
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    networks:
+      - tlm.fed.net
+    ports:
+      - "8179:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 1
+    mem_limit: 5g
+
+  workorder.api:
+    image: azr6382cr01.azurecr.io/mateo2/workorders.api:${IMAGE_TAG_WORKORDERS_API}
+    container_name: mateo2.workorders.api
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - RootConfig__Security__IdentityServerUrl=${ROOTCONFIG__SECURITY__IDENTITYSERVERURL}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    networks:
+      - tlm.fed.net
+    ports:
+      - "8180:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 1
+    mem_limit: 3g
+
+  workorders.federator:
+    image: azr6382cr01.azurecr.io/mateo2/workorders.federator:${IMAGE_TAG}
+    container_name: mateo2.workorders.federator
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    hostname: workorders.federator
+    networks:
+      - tlm.fed.net
+    ports:
+      - "8188:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 0.5
+    mem_limit: 1g
+
+  framework.services.scheduler:
+    image: azr6382cr01.azurecr.io/mateo2/framework.services.scheduler:${IMAGE_TAG_SCHEDULER}
+    container_name: mateo2.scheduler
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - RootConfig__Security__IdentityServerUrl=${ROOTCONFIG__SECURITY__IDENTITYSERVERURL}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    networks:
+      - tlm.fed.net
+    ports:
+      - "8182:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 0.5
+    mem_limit: 1g
+
+  adapters.mt.equipment:
+    image: azr6382cr01.azurecr.io/mateo2/adapters.equipment.mt:${IMAGE_TAG_ADAPTERS_EQUIPMENT_MT}
+    container_name: mateo2.adapters.mt.equipment
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - RootConfig__ServiceClients__AssetPairService__Uri=${ROOTCONFIG__SERVICECLIENTS__ASSETPAIRSERVICE__URI}
+      - RootConfig__ServiceClients__AssetPairService__headers__APIKey=${ROOTCONFIG__SERVICECLIENTS__ASSETPAIRSERVICE__HEADERS_APIKEY}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    networks:
+      - tlm.fed.net
+    ports:
+      - "8183:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 1
+    mem_limit: 5g
+
+  masterdata.composer:
+    image: azr6382cr01.azurecr.io/mateo2/masterdata.composer:${IMAGE_TAG}
+    container_name: mateo2.masterdata.composer
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    networks:
+      - tlm.fed.net
+    ports:
+      - "8074:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 1
+    mem_limit: 5g
+
+  equipmentdemand.composer:
+    image: azr6382cr01.azurecr.io/mateo2/equipmentdemand.composer:${IMAGE_TAG}
+    container_name: mateo2.equipmentdemand.composer
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - RootConfig__Security__IdentityServerUrl=${ROOTCONFIG__SECURITY__IDENTITYSERVERURL}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    networks:
+      - tlm.fed.net
+    restart: unless-stopped
+    ports:
+      - "8116:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 2
+    mem_limit: 5g
+
+  adapters.qtrac.equipmentdemand:
+    image: azr6382cr01.azurecr.io/mateo2/adapters.equipmentdemand.qtrac:${IMAGE_TAG}
+    container_name: mateo2.adapters.qtrac.equipmentdemand
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - RootConfig__Qtrac__ConnectionString=${ROOTCONFIG__QTRAC__CONNECTIONSTRING}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    networks:
+      - tlm.fed.net
+    ports:
+      - "8117:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 1
+    mem_limit: 5g
+
+  adapters.qtrac.jobs:
+    image: azr6382cr01.azurecr.io/mateo2/adapters.jobs.qtrac:${IMAGE_TAG}
+    container_name: mateo2.adapters.qtrac.jobs
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - RootConfig__Qtrac__ConnectionString=${ROOTCONFIG__QTRAC__CONNECTIONSTRING}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    networks:
+      - tlm.fed.net
+    ports:
+      - "8118:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 1
+    mem_limit: 5g
+
+  equipmentdemand.federator:
+    image: azr6382cr01.azurecr.io/mateo2/equipmentdemand.federator:${IMAGE_TAG}
+    container_name: mateo2.equipmentdemand.federator
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    hostname: equipmentdemand.federator
+    networks:
+      - tlm.fed.net
+    ports:
+      - "8184:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 0.5
+    mem_limit: 1g
+
+  adapters.qtrac.movements:
+    image: azr6382cr01.azurecr.io/mateo2/adapters.movements.qtrac:${IMAGE_TAG}
+    container_name: mateo2.adapters.qtrac.movements
+    environment:
+      - Kestrel__Endpoints__Http__Url=${KESTREL__ENDPOINTS__HTTP__URL}
+      - RootConfig__Eventing__Host=${ROOTCONFIG__EVENTING__HOST}
+      - RootConfig__Eventing__Password=${ROOTCONFIG__EVENTING__PASSWORD}
+      - RootConfig__Eventing__UserName=${ROOTCONFIG__EVENTING__USERNAME}
+      - RootConfig__Eventing__VirtualHost=${ROOTCONFIG__EVENTING__VIRTUALHOST}
+      - RootConfig__Repository__ConnectionString=${ROOTCONFIG__REPOSITORY__CONNECTIONSTRING}
+      - RootConfig__Qtrac__ConnectionString=${ROOTCONFIG__QTRAC__CONNECTIONSTRING}
+      - Serilog__MinimumLevel__Default=${SERILOG__MINIMUMLEVEL__DEFAULT}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    networks:
+      - tlm.fed.net
+    ports:
+      - "8199:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    cpus: 1
+    mem_limit: 5g
+
+networks:
+  tlm.fed.net:
+    external:
+      name: tlm.fed.net

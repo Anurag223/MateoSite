@@ -1,0 +1,5 @@
+azr6382cr01.azurecr.io/equipment.api:latest
+azr6382cr01.azurecr.io/equipment.federator:latest
+azr6382cr01.azurecr.io/equipment.composer:latest
+azr6382cr01.azurecr.io/adapters.qtrac.equipment:latest
+azr6382cr01.azurecr.io/framework.services.requesttracker:latest

@@ -1,0 +1,1 @@
+dotnet test --filter TestCategory=Unit Mateo.Site.sln

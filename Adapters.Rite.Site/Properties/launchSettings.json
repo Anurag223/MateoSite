@@ -1,0 +1,29 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:25679",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "Adapters.Rite.Site": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "RootConfig__Eventing__Host": "localhost",
+        "RootConfig__Repository__ConnectionString": "mongodb://localhost:27017",
+        "ASPNETCORE_ENVIRONMENT": "Local"
+      },
+      "applicationUrl": "http://localhost:8857"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "httpPort": 25680,
+      "useSSL": true,
+      "sslPort": 44374
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "rabbit_version": "3.7.8",
+
+  "users": [
+    {
+      "name": "mateo",
+      "password_hash": "JtR8mhFFKMlnbY0GT9BCFNqmmGK04vYud5Xv0iMHsvoCnGt4",
+      "hashing_algorithm": "rabbit_password_hashing_sha256",
+      "tags": "administrator"
+    },
+    {
+      "name": "mateo2",
+      "password_hash": "0zohbaGt3rJ+UNt2uoGhamyvaOH/dwaUVnNduKnd5g5B4csh",
+      "hashing_algorithm": "rabbit_password_hashing_sha256",
+      "tags": "administrator"
+    }
+  ],
+
+  "vhosts": [
+    {
+      "name": "/"
+    },
+    {
+      "name": "mateo"
+    },
+    {
+      "name": "mateo2"
+    }
+  ],
+
+  "permissions": [
+    {
+      "user": "mateo",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    },
+    {
+      "user": "mateo",
+      "vhost": "mateo",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    },
+    {
+      "user": "mateo2",
+      "vhost": "mateo2",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    }
+  ],
+
+  "policies": [
+    {
+      "vhost": "mateo2",
+      "name": "CacheLoadRequested-QL",
+      "pattern": ".CacheLoadRequested$",
+      "apply-to": "queues",
+      "definition": {
+        "max-length": 4000,
+        "message-ttl": 5400000
+      },
+      "priority": 1
+    },
+    {
+      "vhost": "mateo2",
+      "name": "Composer-QL",
+      "pattern": ".Composer$",
+      "apply-to": "queues",
+      "definition": {
+        "max-length": 5000,
+        "message-ttl": 3600000
+      },
+      "priority": 1
+    },
+    {
+      "vhost": "mateo2",
+      "name": "Error_Lazy_Adapters",
+      "pattern": ".CacheLoadRequested_error$",
+      "apply-to": "queues",
+      "definition": {
+        "queue-mode": "lazy"
+      },
+      "priority": 1
+    },
+    {
+      "vhost": "mateo2",
+      "name": "Error_Lazy_Composer",
+      "pattern": ".Composer_error$",
+      "apply-to": "queues",
+      "definition": {
+        "queue-mode": "lazy"
+      },
+      "priority": 1
+    },
+    {
+      "vhost": "mateo2",
+      "name": "exp_Queue",
+      "pattern": "._dotnet_bus_.",
+      "apply-to": "queues",
+      "definition": {
+        "message-ttl": 5000
+      },
+      "priority": 1
+    }
+
+  ]
+}

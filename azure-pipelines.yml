@@ -1,0 +1,138 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+name: '$(buildNumber).$(Rev:r)'
+
+pool:
+  name: '$(azure_pool_name)'
+
+trigger:
+  batch: false
+  branches:
+    include:
+    - develop
+    - master
+    - releases/*
+    - hotfixes/*
+    - sprintreleases/*
+    - dev/previews/*
+    - features/*
+
+    # we use dev/previews/* above to reduce the number of spurious CIs that would
+    # otherwise occur if we did CI for dev/feature/* and/or dev/* -- this way we
+    # only get CI and docker image build knowing that we are going to do a release to
+    # some environment after that
+
+variables:  
+  - group: 'Mateo2 microservice'
+  - group: 'Mateo2 Build common'
+
+  - name: buildConfiguration
+    value: 'Release'
+  
+  - name: solution
+    value: 'Mateo.Site.sln'
+    
+  - name: buildPlatform
+    value: 'Any CPU'
+  
+  # The pattern for the build numbers is documented here: https://slb-it.visualstudio.com/es-TLM-federation/_wiki/wikis/es-TLM-Mateo/10623/Source-Control
+  - name: buildNumber
+    ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
+      value: '2'
+    ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/develop') }}:
+      value: '2.dev'
+    ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/feature/') }}:
+      value: ${{ format('2.feat-{0}', variables['Build.SourceBranchName']) }}
+    ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/dev/previews/') }}:
+      value: ${{ format('2.prev-{0}', variables['Build.SourceBranchName']) }}
+    ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/sprintreleases/') }}:
+      value: ${{ format('2.SR-{0}', variables['Build.SourceBranchName']) }}
+    ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/hotfix/') }}:
+      value: ${{ format('{0}', variables['Build.SourceBranchName']) }}
+    ${{ if eq(variables['Build.Reason'], 'PullRequest') }}:
+      #${{ format('2.PR-{0}', variables['System.PullRequest.PullRequestId']) }}
+      value: '2.PR-Build' # It will be overriden later
+    ${{ if and(notIn(variables['Build.SourceBranch'], 'refs/heads/master', 'refs/heads/develop'), not(startsWith(variables['Build.SourceBranch'], 'refs/heads/sprintreleases/')), not(startsWith(variables['Build.SourceBranch'], 'refs/heads/dev/previews/')), not(startsWith(variables['Build.SourceBranch'], 'refs/heads/features/')), not(startsWith(variables['Build.SourceBranch'], 'refs/heads/hotfixes/')), ne(variables['Build.Reason'], 'PullRequest')) }}:
+      value: ${{ format('2.manual-{0}', variables['Build.SourceBranchName']) }}
+  - name: pullRequestSequenceNumber
+    value: $[counter(variables['System.PullRequest.PullRequestId'], 0)]
+    
+steps:
+  - script: echo '##vso[build.updatebuildnumber]2.PR-$(System.PullRequest.PullRequestId).$(pullRequestSequenceNumber)
+    condition: eq(variables['Build.Reason'], 'PullRequest')
+    displayName: 'Update the build number - add PR ID'
+
+  - task: NuGetToolInstaller@1
+  - task: NuGetCommand@2
+    inputs:
+      restoreSolution: '$(solution)'
+      feedsToUse: 'config'
+      includeNuGetOrg: false
+      nugetConfigPath: NuGet.Config
+
+  - script: dotnet build $(solution) --configuration $(buildConfiguration) --no-restore
+    displayName: 'Build the solution in the $(buildConfiguration) configuration'
+
+  - script: dotnet test $(solution) --no-build --configuration $(build.configuration) --filter "TestCategory=Unit" --logger:trx /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura
+    displayName: 'Run Unit Tests'
+        
+  - task: PublishTestResults@2
+    inputs:
+      testRunner: VSTest
+      testResultsFiles: '**/*.trx'
+      searchFolder: '$(Build.SourcesDirectory)'
+      failTaskOnFailedTests: true
+
+  - script: reportgenerator "-reports:**/coverage.cobertura.xml" "-targetdir:results" "-reporttypes:HTMLInline;HTMLChart"
+    displayName: 'Generate Code Coverage Reports'
+
+  - task: PublishCodeCoverageResults@1
+    inputs:
+      summaryFileLocation: "**/coverage.cobertura.xml"
+      reportDirectory: $(Build.SourcesDirectory)\results
+      codecoverageTool: cobertura
+
+  - template: 'azure-template-docker-image.yml'  
+    parameters:
+      projectname: 'Contexts.Site.API'
+      imagename: 'site.api'
+      NamespaceName: 'Tlm.Fed.Contexts.Site'
+      RepositoryFolder: 'mateo2'    
+
+  - template: 'azure-template-docker-image.yml'  
+    parameters:
+      projectname: 'Contexts.Site.Composer'
+      imagename: 'site.composer'
+      NamespaceName: 'Tlm.Fed.Contexts.Site'
+      RepositoryFolder: 'mateo2'
+      
+  - template: 'azure-template-docker-image.yml'  
+    parameters:
+      projectname: 'Adapters.Rite.Site'
+      imagename: 'adapters.site.rite'
+      NamespaceName: 'Tlm.Fed.Adapters.Rite'
+      RepositoryFolder: 'mateo2'
+      
+  - template: 'azure-template-docker-image.yml'  
+    parameters:
+      projectname: 'Adapters.Qtrac.Site'
+      imagename: 'adapters.site.qtrac'
+      NamespaceName: 'Tlm.Fed.Adapters.Qtrac'
+      RepositoryFolder: 'mateo2'
+
+  - template: 'azure-template-docker-image.yml'  
+    parameters:
+      projectname: 'Adapters.Maximo.Site'
+      imagename: 'adapters.site.maximo'
+      NamespaceName: 'Tlm.Fed.Adapters.Maximo'
+      RepositoryFolder: 'mateo2'
+
+  - template: 'azure-template-docker-image.yml'  
+    parameters:
+      projectname: 'Adapters.SAP.Site'
+      imagename: 'adapters.site.sap'
+      NamespaceName: 'Tlm.Fed.Adapters.SAP'
+      RepositoryFolder: 'mateo2'    

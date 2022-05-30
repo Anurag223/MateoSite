@@ -1,0 +1,10 @@
+﻿mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
+
+WORKDIR /app
+EXPOSE 80
+WORKDIR /app
+
+# Copy files from the artifact staging folder on agent
+COPY <your-project-folder>/out .
+
+ENTRYPOINT ["dotnet", "<your-project-dll>.dll"]

@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<ItemGroup>
+		<PackageReference Include="Tlm.Fed.Framework.Internal" Version="13.0.2" />
+	</ItemGroup>
+
+	<!--Added external reference as dotnet runtime includes vulnerability (https://github.com/dotnet/runtime/issues/49377)-->
+	<ItemGroup>
+		<PackageReference Include="System.Net.Http" Version="4.3.4" />
+		<PackageReference Include="System.Text.Encodings.Web" Version="4.5.1" />
+		<PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+	</ItemGroup>
+	<PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Tlm.Fed.Adapters.SAP.Common</AssemblyName>
+    <RootNamespace>Tlm.Fed.Adapters.SAP.Common</RootNamespace>
+  </PropertyGroup>
+    <PropertyGroup>
+    <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+  </PropertyGroup>
+
+</Project>

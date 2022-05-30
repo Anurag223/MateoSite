@@ -1,0 +1,52 @@
+﻿ <Project Sdk="Microsoft.NET.Sdk.Web"> 
+
+  <PropertyGroup>
+    <!--
+    We want to be as strict as possible on warnings, so we will treat them as errors. Why? Because
+    warnings in the right circumstances (runtime or compiletime) can *actually* be errors (or bugs).
+    -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <!--
+    That said, these warnings regarding versioning and obsolesence tend to be too noisy
+    -->
+    <NoWarn>1701;1702;1591;NU1605;S4823</NoWarn>
+
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <AssemblyName>Tlm.Fed.Contexts.Site.Composer</AssemblyName>
+    <RootNamespace>Tlm.Fed.Contexts.Site.Composer</RootNamespace>
+    <!--https://stackoverflow.com/questions/46048445/how-do-i-reduce-memory-usage-for-net-core-docker-containers -->
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+	  <!-- SonarQube needs this -->
+	   <ProjectGuid>{8129C949-2B80-407C-9EB4-B384DAFAC800}</ProjectGuid>
+	  <UserSecretsId>cfd49e14-1bf5-4494-9115-c0a15c19daf9</UserSecretsId>
+	  <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+	  <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+  </PropertyGroup>
+    <PropertyGroup>
+    <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.1.19" />
+    <PackageReference Include="Serilog.Sinks.AzureAnalytics" Version="4.7.0" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
+    <PackageReference Include="Tlm.Fed.Framework.Internal" Version="13.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+     <ProjectReference Include="..\Contexts.Common\Contexts.Common.csproj" />
+     <ProjectReference Include="..\Contexts.Site.Core\Contexts.Site.Core.csproj" />
+  </ItemGroup>
+
+</Project>

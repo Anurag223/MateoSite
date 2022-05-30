@@ -1,0 +1,73 @@
+﻿ <Project Sdk="Microsoft.NET.Sdk"> 
+
+  <PropertyGroup>
+    <!--
+    We want to be as strict as possible on warnings, so we will treat them as errors. Why? Because
+    warnings in the right circumstances (runtime or compiletime) can *actually* be errors (or bugs).
+    -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <!--
+    That said, these warnings regarding versioning and obsolesence tend to be too noisy
+    -->
+    <NoWarn>1701;1702;1591;NU1605;S4823</NoWarn>
+
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>Tlm.Fed.Adapters.Rite.Common</RootNamespace>
+    <AssemblyName>Tlm.Fed.Adapters.Rite.Common</AssemblyName>
+    <!-- SonarQube needs this -->
+     <ProjectGuid>{C3AC86CA-7B3D-446E-9E0F-1B8BBC1C474E}</ProjectGuid>
+    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+  </PropertyGroup>
+    <PropertyGroup>
+    <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.19" />
+    <PackageReference Include="RestSharp" Version="106.12.0" />
+    <PackageReference Include="Serilog.Sinks.AzureAnalytics" Version="4.7.0" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.8.1" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.8.1" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.8.1" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.8.1" />
+    <PackageReference Include="Tlm.Fed.Framework.Internal" Version="13.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+     <ProjectReference Include="..\Models.Canonical\Models.Canonical.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="certs_TITE_CA\" />
+    <Folder Include="Connected Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="certs_TITE_CA\UserForRite.p7b">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="certs_TITE_CA\UserForRite2.cer">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="certs_TITE_CA\UserForRite3.cer">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
+  </ItemGroup>
+
+  <Target Name="BeforeBuild">
+    <ItemGroup>
+      <SonarQubeSetting Include="sonar.exclusions">
+        <Value>**/Services/ServiceModels/**/*</Value>
+      </SonarQubeSetting>
+    </ItemGroup>
+  </Target>
+
+</Project>

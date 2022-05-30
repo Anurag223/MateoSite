@@ -1,0 +1,31 @@
+{
+  "RootConfig:FeatureFlags": {
+    "EpicV3FeatureFlag": true,
+    "EdoValidationProductLines": "M-I,DBM",
+    "edoValidationFlag": true
+  },
+  "RootConfig:Security:RootPolicy": "Root",
+  "RootConfig:Security:GroupClaims": [
+    "cfb3f0a7-5c4b-4bf4-b59a-1604fc0c766b",
+    "4600ccd9-3c58-4c02-a2d0-60c37944483e"
+  ],
+  "RootConfig:Security:IdentityServerUrl": "https://auth.dev.tlm.slb.com",
+  "RootConfig:Security:ClientId": "automation_api",
+  "RootConfig:Security:MateoIdentityClientSecret": "REDACTED",
+  "RootConfig:Security:MateoIdentityClientId": "automation_api",
+  "RootConfig:Security:PolicyServerUrl": "http://fed.dev.tlm.slb.com:5674",
+  "RootConfig:Security:SwaggerClientId": "mateo_swagger",
+  "RootConfig:Security:SwaggerClientSecret": "REDACTED",
+  "RootConfig:Security:SwaggerAppName": "Mateo API Swagger Client",
+  "RootConfig:Security:AzureAdGroup": "REDACTED",
+  "RootConfig:Security:BypassAuth": true,
+  "RootConfig:Rite": {
+    "Url": "http://localhost",
+    "UserUrl": "http://localhost",
+    "UserRestApiKey": "REDACTED",
+    "RestApiKey": "REDACTED",
+    "Timeout": "00:01:00.000",
+    "ToolSetTemplatePageSize": 10000,
+    "MeasurePointReadingEndPoint": "http://localhost"
+  } 
+}

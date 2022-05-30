@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Client</title>
+</head>
+<body>
+    Low-Level Customization
+There are a number of settings that are not configurable directly from MongoClientSettings. These settings are able to be configured through the ClusterConfigurator property which provides a ClusterBuilder to manipulate. An example of these is adding a logger using the eventing infrastructure.
+
+Re-use
+It is recommended to store a MongoClient instance in a global place, either as a static variable or in an IoC container with a singleton lifetime.
+
+However, multiple MongoClient instances created with the same settings will utilize the same connection pools underneath. Unfortunately, certain types of settings are not able to be compared for equality. For instance, the ClusterConfigurator property is a delegate and only its address is known for comparison. If you wish to construct multiple MongoClients, ensure that your delegates are all using the same address if the intent is to share connection pools.
+
+Monitoring
+MongoClient utilizes an ICluster from MongoDB.Driver.Core which handles monitoring the cluster.
+
+Mongo Database
+An IMongoDatabase represents a database in a MongoDB server. Databases are retrieved from an IMongoClient instance using the GetDatabase method:
+
+var db = client.GetDatabase("hr");
+Above, we have gotten the “hr” database. If the database does not exist on the server, it will be created automatically upon first use. If you want to use more than one database, call GetDatabase once for each database you’d like to work with.
+
+Re-use
+The implementation of IMongoDatabase provided by a MongoClient is thread-safe and is safe to be stored globally or in an IoC container.
+
+Mongo Collection
+An IMongoCollection{TDocument} represents a collection in a MongoDB database. Collections are retrieved from an IMongoDatabase with the GetCollection{TDocument} method:
+
+</body>
+</html>

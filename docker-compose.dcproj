@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" Sdk="Microsoft.Docker.Sdk">
+  <PropertyGroup Label="Globals">
+    <ProjectVersion>2.1</ProjectVersion>
+    <DockerTargetOS>Linux</DockerTargetOS>
+    <ProjectGuid>acccce19-bf25-4220-95eb-33a57f7c420a</ProjectGuid>
+    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
+    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/api-doc/v2/workorders</DockerServiceUrl>
+    <DockerServiceName>contexts.workorders.api</DockerServiceName>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include=".env" />
+    <None Include="azure-pipelines-adapters.maximo.site.yml" />
+    <None Include="azure-pipelines-adapters.qtrac.site.yml" />
+    <None Include="azure-pipelines-adapters.rite.site.yml" />
+    <None Include="azure-pipelines-contexts.site.api.yml" />
+    <None Include="azure-pipelines-contexts.site.composer.yml" />
+    <None Include="devops\azure-pipelines-template.yml" />
+    <None Include="devops\certs\CA1.crt" />
+    <None Include="devops\certs\CA2.crt" />
+    <None Include="devops\certs\Root.crt" />
+    <None Include="devops\docker-compose.ps.yml" />
+    <None Include="devops\docker-compose.yml" />
+    <None Include="devops\docker-compose-nginx.yml" />
+    <None Include="devops\Dockerfile.build.template" />
+    <None Include="devops\nginx\conf\nginx.conf" />
+    <None Include="devops\nginx\conf\server-fed-dev.conf" />
+    <None Include="devops\nginx\Dockerfile" />
+    <None Include="devops\nginx\nginx.conf" />
+    <None Include="devops\nginx\testfiles\index.html" />
+    <None Include="devops\nginx\testfiles\response.json" />
+    <None Include="devops\nuget.config" />
+    <None Include="devops\rabbitmq\definitions.json" />
+    <None Include="devops\rabbitmq\rabbitmq.conf" />
+    <None Include="docker-clear-all.bat" />
+    <None Include="docker-clear.bat" />
+    <None Include="docker-compose-external-twofederators.yml">
+      <DependentUpon>docker-compose-external.yml</DependentUpon>
+    </None>
+    <None Include="docker-compose-external.override.yml">
+      <DependentUpon>docker-compose-external.yml</DependentUpon>
+    </None>
+    <None Include="docker-compose-external.yml" />
+    <None Include="docker-compose-local.override.yml">
+      <DependentUpon>docker-compose-local.yml</DependentUpon>
+    </None>
+    <None Include="docker-compose-local.yml" />
+    <None Include="docker-compose.override.yml">
+      <DependentUpon>docker-compose.yml</DependentUpon>
+    </None>
+    <None Include="docker-compose.yml" />
+    <None Include=".dockerignore" />
+    <None Include="Readme.md" />
+    <None Include="start-docker-compose-external.cmd" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,18 @@
+{
+  "RootConfig": {
+    "Eventing": {
+      "Port": 5672,
+      "RetryOptions": {
+        "Description": "Messaging Retry",
+        "MaxTries": 20,
+        "DelayBeforeFirstRetry": "00:00:03.500",
+        "MaxDelay": "00:02:00.000",
+        "CircuitBreaker": {
+          "Description": "Messaging Circuit Breaker",
+          "NumberOfExceptionsBeforeBreaking": 3,
+          "DurationOfBreak": "00:00:30"
+        }
+      }
+    }
+  }
+}

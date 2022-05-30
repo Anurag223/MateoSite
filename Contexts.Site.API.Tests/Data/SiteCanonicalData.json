@@ -1,0 +1,135 @@
+﻿[
+  {
+    "Attributes": [
+      {
+        "category": null,
+        "code": "DEFAULTLOCATION",
+        "name": "DefaultLocation",
+        "dimension": null,
+        "sequence": null,
+        "uom": null,
+        "value": "Dummy Default Location"
+      }
+    ],
+    "UnmanagedAttributes": {
+      "earaa2392": {
+        "area": {
+          "uom": null,
+          "value": "NAM",
+          "name": "area"
+        },
+        "ownership": {
+          "uom": null,
+          "value": "Owned",
+          "name": "ownership"
+        },
+        "facility_description": {
+          "uom": null,
+          "value": "Operating Base",
+          "name": "facility_description"
+        },
+        "Facility_status": {
+          "uom": null,
+          "value": "Active",
+          "name": "Facility_status"
+        },
+        "latitude": {
+          "uom": null,
+          "value": "48.154000000",
+          "name": "latitude"
+        },
+        "longitude": {
+          "uom": null,
+          "value": "-103.743800000",
+          "name": "longitude"
+        }
+      }
+    },
+    "FacilityId": "1198",
+    "FacilityName": null,
+    "GeoMarketCode": null,
+    "SegmentCode": "WS",
+    "SiteType": "STOREROOM",
+    "SubSites": null,
+    "Code": "1713951",
+    "City": "Dummy City",
+    "CountryCode": "Dummy CountryCode",
+    "Name": "S. Marunda, Indonesia - CTS",
+    "ActiveCmmsId": 2392,
+    "SourceSystemRecordId": "S.1713951",
+    "CreatedBy": null,
+    "CreatedDate": "2019-05-29T20:49:35.2255582Z",
+    "ModifiedBy": null,
+    "ModifiedDate": "0001-01-01T00:00:00",
+    "SyncDate": "0001-01-01T00:00:00",
+    "TimeToLiveDate": "0001-01-01T00:00:00",
+    "Id": " "
+  },
+  {
+    "Attributes": [
+      {
+        "category": null,
+        "code": "DEFAULTLOCATION",
+        "name": "DefaultLocation",
+        "dimension": null,
+        "sequence": null,
+        "uom": null,
+        "value": "Dummy Default Location 2"
+      }
+    ],
+    "UnmanagedAttributes": {
+      "earaa2392": {
+        "area": {
+          "uom": null,
+          "value": "MEA",
+          "name": "area"
+        },
+        "ownership": {
+          "uom": null,
+          "value": "3rd Party",
+          "name": "ownership"
+        },
+        "facility_description": {
+          "uom": null,
+          "value": "Operating Base",
+          "name": "facility_description"
+        },
+        "Facility_status": {
+          "uom": null,
+          "value": "Active",
+          "name": "Facility_status"
+        },
+        "latitude": {
+          "uom": null,
+          "value": "15.600000000",
+          "name": "latitude"
+        },
+        "longitude": {
+          "uom": null,
+          "value": "49.150000000",
+          "name": "longitude"
+        }
+      }
+    },
+    "FacilityId": "3288",
+    "FacilityName": null,
+    "GeoMarketCode": null,
+    "SegmentCode": "WS",
+    "SiteType": "STOREROOM",
+    "SubSites": null,
+    "Code": "209567",
+    "City": "Dummy City 2",
+    "CountryCode": "Dummy CountryCode 2",
+    "Description": "S. zz Do Not Use - Angleton, TX - CTS",
+    "Name": "S. zz Do Not Use - Angleton, TX - CTS",
+    "ActiveCmmsId": 2392,
+    "SourceSystemRecordId": "S.ATXCTS",
+    "CreatedBy": null,
+    "CreatedDate": "2019-05-29T20:49:35.2264015Z",
+    "ModifiedBy": null,
+    "ModifiedDate": "0001-01-01T00:00:00",
+    "SyncDate": "0001-01-01T00:00:00",
+    "TimeToLiveDate": "0001-01-01T00:00:00",
+    "Id": " "
+  }
+]

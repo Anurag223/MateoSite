@@ -1,0 +1,352 @@
+[
+  {
+    "Id": "OAT",
+    "Code": "OAT",
+    "Type": "Basin",
+    "LongName": "Offshore Atlantic",
+    "Definition": "Offshore Atlantic",
+    "ParentCode": "",
+    "BVGroup": "SCA",
+    "Level": 3
+  },
+  {
+    "Id": "RCA",
+    "Code": "RCA",
+    "Type": "Basin",
+    "LongName": "Russia and Central Asia",
+    "Definition": "Russia and Central Asia",
+    "ParentCode": "",
+    "BVGroup": "RCA",
+    "Level": 3
+  },
+  {
+    "Id": "MENA",
+    "Code": "MENA",
+    "Type": "Basin",
+    "LongName": "MENA",
+    "Definition": "MENA",
+    "ParentCode": "",
+    "BVGroup": "KSA",
+    "Level": 3
+  },
+  {
+    "Id": "ASIA",
+    "Code": "ASIA",
+    "Type": "Basin",
+    "LongName": "ASIA",
+    "Definition": "ASIA",
+    "ParentCode": "",
+    "BVGroup": "SEA",
+    "Level": 3
+  },
+  {
+    "Id": "AML",
+    "Code": "AML",
+    "Type": "Basin",
+    "LongName": "Americas Land",
+    "Definition": "Americas Land",
+    "ParentCode": "",
+    "BVGroup": "LAS",
+    "Level": 3
+  },
+  {
+    "Id": "SCA",
+    "Code": "SCA",
+    "Type": "Geounit",
+    "LongName": "Scandinavia",
+    "Definition": "Scandinavia",
+    "ParentCode": "OAT",
+    "BVGroup": "SCA",
+    "Level": 4
+  },
+  {
+    "Id": "MCA",
+    "Code": "MCA",
+    "Type": "Geounit",
+    "LongName": "Mexico and Central America",
+    "Definition": "Mexico and Central America",
+    "ParentCode": "OAT",
+    "BVGroup": "MCA",
+    "Level": 4
+  },
+  {
+    "Id": "NAO",
+    "Code": "NAO",
+    "Type": "Geounit",
+    "LongName": "North America Offshore",
+    "Definition": "North America Offshore",
+    "ParentCode": "OAT",
+    "BVGroup": "NAO",
+    "Level": 4
+  },
+  {
+    "Id": "GTC",
+    "Code": "GTC",
+    "Type": "Geounit",
+    "LongName": "Guyana Trinidad and Caribbean",
+    "Definition": "Guyana Trinidad and Caribbean",
+    "ParentCode": "OAT",
+    "BVGroup": "NAO",
+    "Level": 4
+  },
+  {
+    "Id": "BRZ",
+    "Code": "BRZ",
+    "Type": "Geounit",
+    "LongName": "Brazil",
+    "Definition": "Brazil",
+    "ParentCode": "OAT",
+    "BVGroup": "LAS",
+    "Level": 4
+  },
+  {
+    "Id": "NAW",
+    "Code": "NAW",
+    "Type": "Geounit",
+    "LongName": "Nigeria and Africa West",
+    "Definition": "Nigeria and Africa West",
+    "ParentCode": "OAT",
+    "BVGroup": "SSA",
+    "Level": 4
+  },
+  {
+    "Id": "ACE",
+    "Code": "ACE",
+    "Type": "Geounit",
+    "LongName": "Angola Central and East Africa",
+    "Definition": "Angola Central and East Africa",
+    "ParentCode": "OAT",
+    "BVGroup": "SSA",
+    "Level": 4
+  },
+  {
+    "Id": "EUR",
+    "Code": "EUR",
+    "Type": "Geounit",
+    "LongName": "Europe",
+    "Definition": "Europe",
+    "ParentCode": "OAT",
+    "BVGroup": "EUR",
+    "Level": 4
+  },
+  {
+    "Id": "KZU",
+    "Code": "KZU",
+    "Type": "Geounit",
+    "LongName": "Kazakhstan",
+    "Definition": "Kazakhstan",
+    "ParentCode": "RCA",
+    "BVGroup": "RCA",
+    "Level": 4
+  },
+  {
+    "Id": "RUL",
+    "Code": "RUL",
+    "Type": "Geounit",
+    "LongName": "Russia Land",
+    "Definition": "Russia Land",
+    "ParentCode": "RCA",
+    "BVGroup": "RCA",
+    "Level": 4
+  },
+  {
+    "Id": "ASG",
+    "Code": "ASG",
+    "Type": "Geounit",
+    "LongName": "Arctic and South Offshore",
+    "Definition": "Arctic and South Offshore",
+    "ParentCode": "RCA",
+    "BVGroup": "RCA",
+    "Level": 4
+  },
+  {
+    "Id": "AZT",
+    "Code": "AZT",
+    "Type": "Geounit",
+    "LongName": "Azerbaijan and Turkmenistan",
+    "Definition": "Azerbaijan and Turkmenistan",
+    "ParentCode": "RCA",
+    "BVGroup": "RCA",
+    "Level": 4
+  },
+  {
+    "Id": "SKG",
+    "Code": "SKG",
+    "Type": "Geounit",
+    "LongName": "Russia Sakhalin",
+    "Definition": "Russia Sakhalin",
+    "ParentCode": "RCA",
+    "BVGroup": "RCA",
+    "Level": 4
+  },
+  {
+    "Id": "KSA",
+    "Code": "KSA",
+    "Type": "Geounit",
+    "LongName": "Saudi and Bahrain",
+    "Definition": "Saudi and Bahrain",
+    "ParentCode": "MENA",
+    "BVGroup": "KSA",
+    "Level": 4
+  },
+  {
+    "Id": "KWT",
+    "Code": "KWT",
+    "Type": "Geounit",
+    "LongName": "Kuwait",
+    "Definition": "Kuwait",
+    "ParentCode": "MENA",
+    "BVGroup": "NME",
+    "Level": 4
+  },
+  {
+    "Id": "QTG",
+    "Code": "QTG",
+    "Type": "Geounit",
+    "LongName": "Qatar",
+    "Definition": "Qatar",
+    "ParentCode": "MENA",
+    "BVGroup": "NME",
+    "Level": 4
+  },
+  {
+    "Id": "ESG",
+    "Code": "ESG",
+    "Type": "Geounit",
+    "LongName": "Egypt Sudan and East Mediterranean",
+    "Definition": "Egypt Sudan and East Mediterranean",
+    "ParentCode": "MENA",
+    "BVGroup": "NME",
+    "Level": 4
+  },
+  {
+    "Id": "NAF",
+    "Code": "NAF",
+    "Type": "Geounit",
+    "LongName": "North Africa",
+    "Definition": "North Africa",
+    "ParentCode": "MENA",
+    "BVGroup": "NAF",
+    "Level": 4
+  },
+  {
+    "Id": "OPG",
+    "Code": "OPG",
+    "Type": "Geounit",
+    "LongName": "Oman Yemen and Pakistan",
+    "Definition": "Oman Yemen and Pakistan",
+    "ParentCode": "MENA",
+    "BVGroup": "EME",
+    "Level": 4
+  },
+  {
+    "Id": "IRQ",
+    "Code": "IRQ",
+    "Type": "Geounit",
+    "LongName": "Iraq",
+    "Definition": "Iraq",
+    "ParentCode": "MENA",
+    "BVGroup": "EME",
+    "Level": 4
+  },
+  {
+    "Id": "EMG",
+    "Code": "EMG",
+    "Type": "Geounit",
+    "LongName": "Emirates",
+    "Definition": "Emirates",
+    "ParentCode": "MENA",
+    "BVGroup": "EME",
+    "Level": 4
+  },
+  {
+    "Id": "EAG",
+    "Code": "EAG",
+    "Type": "Geounit",
+    "LongName": "East Asia",
+    "Definition": "East Asia",
+    "ParentCode": "ASIA",
+    "BVGroup": "SEA",
+    "Level": 4
+  },
+  {
+    "Id": "INM",
+    "Code": "INM",
+    "Type": "Geounit",
+    "LongName": "India",
+    "Definition": "India",
+    "ParentCode": "ASIA",
+    "BVGroup": "SEA",
+    "Level": 4
+  },
+  {
+    "Id": "CHG",
+    "Code": "CHG",
+    "Type": "Geounit",
+    "LongName": "China Japan and Korea",
+    "Definition": "China Japan and Korea",
+    "ParentCode": "ASIA",
+    "BVGroup": "FEA",
+    "Level": 4
+  },
+  {
+    "Id": "APG",
+    "Code": "APG",
+    "Type": "Geounit",
+    "LongName": "Australia  New Zealand and Papa New Guinea",
+    "Definition": "Australia  New Zealand and Papa New Guinea",
+    "ParentCode": "ASIA",
+    "BVGroup": "FEA",
+    "Level": 4
+  },
+  {
+    "Id": "ING",
+    "Code": "ING",
+    "Type": "Geounit",
+    "LongName": "Indonesia",
+    "Definition": "Indonesia",
+    "ParentCode": "ASIA",
+    "BVGroup": "FEA",
+    "Level": 4
+  },
+  {
+    "Id": "ABC",
+    "Code": "ABC",
+    "Type": "Geounit",
+    "LongName": "Argentina Bolivia and Chile",
+    "Definition": "Argentina Bolivia and Chile",
+    "ParentCode": "AML",
+    "BVGroup": "LAS",
+    "Level": 4
+  },
+  {
+    "Id": "USL",
+    "Code": "USL",
+    "Type": "Geounit",
+    "LongName": "US Land",
+    "Definition": "US Land",
+    "ParentCode": "AML",
+    "BVGroup": "NAL",
+    "Level": 4
+  },
+  {
+    "Id": "CAL",
+    "Code": "CAL",
+    "Type": "Geounit",
+    "LongName": "Canada Land",
+    "Definition": "Canada Land",
+    "ParentCode": "AML",
+    "BVGroup": "NAL",
+    "Level": 4
+  },
+  {
+    "Id": "ECP",
+    "Code": "ECP",
+    "Type": "Geounit",
+    "LongName": "Ecuador Colombia and Peru",
+    "Definition": "Ecuador Colombia and Peru",
+    "ParentCode": "AML",
+    "BVGroup": "LAN",
+    "Level": 4
+  }
+]

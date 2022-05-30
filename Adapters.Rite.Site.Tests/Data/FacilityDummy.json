@@ -1,0 +1,22 @@
+﻿[
+  {
+    "_id": "North Kuwait MI Mud Plant",
+    "createdby": "TLM",
+    "modifiedby": "TLM",
+    "latitude": "29.8045000",
+    "longitude": "47.7185000",
+    "name": "North Kuwait MI Mud Plant",
+    "fmdcommonid": "1"
+  },
+
+  /* 2 */
+  {
+    "_id": "\"EAF.GB..Aberdeen.Hareness Cir, Altens*\"",
+    "createdby": "TLM",
+    "modifiedby": "TLM",
+    "latitude": "57.1437000",
+    "longitude": "-2.0981000",
+    "name": "\"EAF.GB..Aberdeen.Hareness Cir, Altens*\"",
+    "fmdcommonid": "312"
+  }
+]

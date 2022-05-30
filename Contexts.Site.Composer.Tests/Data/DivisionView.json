@@ -1,0 +1,1262 @@
+[
+  {
+    "Id": "SFP",
+    "Code": "SFP",
+    "Type": "BusinessLine",
+    "LongName": "Surface Production Systems",
+    "Definition": "Surface Production Systems",
+    "ParentCode": "PRS",
+    "DVGroup": "ALS"
+  },
+  {
+    "Id": "WPRS",
+    "Code": "WPRS",
+    "Type": "BusinessLine",
+    "LongName": "Well Production Systems",
+    "Definition": "Well Production Systems",
+    "ParentCode": "PRS",
+    "DVGroup": "ALS"
+  },
+  {
+    "Id": "SSPS",
+    "Code": "SSPS",
+    "Type": "BusinessLine",
+    "LongName": "SubSea Production Systems",
+    "Definition": "SubSea Production Systems",
+    "ParentCode": "PRS",
+    "DVGroup": "CSUB"
+  },
+  {
+    "Id": "MPS",
+    "Code": "MPS",
+    "Type": "BusinessLine",
+    "LongName": "Midstream Production Systems",
+    "Definition": "Midstream Production Systems",
+    "ParentCode": "PRS",
+    "DVGroup": "CVPS"
+  },
+  {
+    "Id": "IRP",
+    "Code": "IRP",
+    "Type": "BusinessLine",
+    "LongName": "Integrated Reservoir Performance",
+    "Definition": "Integrated Reservoir Performance",
+    "ParentCode": "DAI",
+    "DVGroup": "APS"
+  },
+  {
+    "Id": "DSS",
+    "Code": "DSS",
+    "Type": "BusinessLine",
+    "LongName": "Digital Subsurface Solutions",
+    "Definition": "Digital Subsurface Solutions",
+    "ParentCode": "DAI",
+    "DVGroup": "SIS"
+  },
+  {
+    "Id": "DOS",
+    "Code": "DOS",
+    "Type": "BusinessLine",
+    "LongName": "Digital Operations Solutions",
+    "Definition": "Digital Operations Solutions",
+    "ParentCode": "DAI",
+    "DVGroup": "SIS"
+  },
+  {
+    "Id": "IGWC",
+    "Code": "IGWC",
+    "Type": "BusinessLine",
+    "LongName": "Integrated Well Construction",
+    "Definition": "Integrated Well Construction",
+    "ParentCode": "DAI",
+    "DVGroup": "WCSS"
+  },
+  {
+    "Id": "EXD",
+    "Code": "EXD",
+    "Type": "BusinessLine",
+    "LongName": "Exploration Data",
+    "Definition": "Exploration Data",
+    "ParentCode": "DAI",
+    "DVGroup": "WG"
+  },
+  {
+    "Id": "WCD",
+    "Code": "WCD",
+    "Type": "BusinessLine",
+    "LongName": "Well Construction Drilling",
+    "Definition": "Well Construction Drilling",
+    "ParentCode": "WEC",
+    "DVGroup": "BDT"
+  },
+  {
+    "Id": "WCE",
+    "Code": "WCE",
+    "Type": "BusinessLine",
+    "LongName": "Well Construction Equipment",
+    "Definition": "Well Construction Equipment",
+    "ParentCode": "WEC",
+    "DVGroup": "CDLG"
+  },
+  {
+    "Id": "WCM",
+    "Code": "WCM",
+    "Type": "BusinessLine",
+    "LongName": "Well Construction Measurements",
+    "Definition": "Well Construction Measurements",
+    "ParentCode": "WEC",
+    "DVGroup": "DBM"
+  },
+  {
+    "Id": "WCF",
+    "Code": "WCF",
+    "Type": "BusinessLine",
+    "LongName": "Well Construction Fluids",
+    "Definition": "Well Construction Fluids",
+    "ParentCode": "WEC",
+    "DVGroup": "M-I"
+  },
+  {
+    "Id": "RPS",
+    "Code": "RPS",
+    "Type": "BusinessLine",
+    "LongName": "Reservoir Performance Stimulation",
+    "Definition": "Reservoir Performance Stimulation",
+    "ParentCode": "RPF",
+    "DVGroup": "PRSS"
+  },
+  {
+    "Id": "RPI",
+    "Code": "RPI",
+    "Type": "BusinessLine",
+    "LongName": "Reservoir Performance Intervention",
+    "Definition": "Reservoir Performance Intervention",
+    "ParentCode": "RPF",
+    "DVGroup": "TS"
+  },
+  {
+    "Id": "RPE",
+    "Code": "RPE",
+    "Type": "BusinessLine",
+    "LongName": "Reservoir Performance Evaluation",
+    "Definition": "Reservoir Performance Evaluation",
+    "ParentCode": "RPF",
+    "DVGroup": "TS"
+  },
+  {
+    "Id": "OTH",
+    "Code": "OTH",
+    "Type": "Division",
+    "LongName": "Other",
+    "Definition": "Other",
+    "ParentCode": "",
+    "DVGroup": "SNV"
+  },
+  {
+    "Id": "PRS",
+    "Code": "PRS",
+    "Type": "Division",
+    "LongName": "Production Systems",
+    "Definition": "Production Systems",
+    "ParentCode": "",
+    "DVGroup": "ALS"
+  },
+  {
+    "Id": "DAI",
+    "Code": "DAI",
+    "Type": "Division",
+    "LongName": "Digital & Integration",
+    "Definition": "Digital & Integration",
+    "ParentCode": "",
+    "DVGroup": "APS"
+  },
+  {
+    "Id": "WEC",
+    "Code": "WEC",
+    "Type": "Division",
+    "LongName": "Well Construction",
+    "Definition": "Well Construction",
+    "ParentCode": "",
+    "DVGroup": "BDT"
+  },
+  {
+    "Id": "RPF",
+    "Code": "RPF",
+    "Type": "Division",
+    "LongName": "Reservoir Performance",
+    "Definition": "Reservoir Performance",
+    "ParentCode": "",
+    "DVGroup": "PRSS"
+  },
+  {
+    "Id": "HPS",
+    "Code": "HPS",
+    "Type": "SubBusinessLine",
+    "LongName": "ALS HPS",
+    "Definition": "ALS HPS",
+    "ParentCode": "SFP",
+    "DVGroup": "ALS"
+  },
+  {
+    "Id": "SRP",
+    "Code": "SRP",
+    "Type": "SubBusinessLine",
+    "LongName": "Sucker Rod Pumps",
+    "Definition": "Sucker Rod Pumps",
+    "ParentCode": "SFP",
+    "DVGroup": "ALS"
+  },
+  {
+    "Id": "CSUR1",
+    "Code": "CSUR1",
+    "Type": "SubBusinessLine",
+    "LongName": "Cameron Surface Sub Segment",
+    "Definition": "Cameron Surface Sub Segment",
+    "ParentCode": "SFP",
+    "DVGroup": "CSUR"
+  },
+  {
+    "Id": "RTAL",
+    "Code": "RTAL",
+    "Type": "SubBusinessLine",
+    "LongName": "ALS RTAL",
+    "Definition": "ALS RTAL",
+    "ParentCode": "WPRS",
+    "DVGroup": "ALS"
+  },
+  {
+    "Id": "PCP",
+    "Code": "PCP",
+    "Type": "SubBusinessLine",
+    "LongName": "Progressive Cavity Pumps",
+    "Definition": "Progressive Cavity Pumps",
+    "ParentCode": "WPRS",
+    "DVGroup": "ALS"
+  },
+  {
+    "Id": "ASNS",
+    "Code": "ASNS",
+    "Type": "SubBusinessLine",
+    "LongName": "Sensia JV - ALS",
+    "Definition": "Sensia JV - ALS",
+    "ParentCode": "WPRS",
+    "DVGroup": "ALS"
+  },
+  {
+    "Id": "TALS",
+    "Code": "TALS",
+    "Type": "SubBusinessLine",
+    "LongName": "TLM Artificial Lift Solutions",
+    "Definition": "TLM Artificial Lift Solutions",
+    "ParentCode": "WPRS",
+    "DVGroup": "ALS"
+  },
+  {
+    "Id": "ESP",
+    "Code": "ESP",
+    "Type": "SubBusinessLine",
+    "LongName": "ALS ESP",
+    "Definition": "ALS ESP",
+    "ParentCode": "WPRS",
+    "DVGroup": "ALS"
+  },
+  {
+    "Id": "AGL",
+    "Code": "AGL",
+    "Type": "SubBusinessLine",
+    "LongName": "ALS Gas Lift",
+    "Definition": "ALS Gas Lift",
+    "ParentCode": "WPRS",
+    "DVGroup": "ALS"
+  },
+  {
+    "Id": "ASNS2",
+    "Code": "ASNS2",
+    "Type": "SubBusinessLine",
+    "LongName": "Sensia JV - ALS (Finance use only)",
+    "Definition": "Sensia JV - ALS (Finance use only)",
+    "ParentCode": "WPRS",
+    "DVGroup": "ALS"
+  },
+  {
+    "Id": "CCM",
+    "Code": "CCM",
+    "Type": "SubBusinessLine",
+    "LongName": "CPL Core Completions",
+    "Definition": "CPL Core Completions",
+    "ParentCode": "WPRS",
+    "DVGroup": "CPL"
+  },
+  {
+    "Id": "CMC",
+    "Code": "CMC",
+    "Type": "SubBusinessLine",
+    "LongName": "CPL Monitoring and Control",
+    "Definition": "CPL Monitoring and Control",
+    "ParentCode": "WPRS",
+    "DVGroup": "CPL"
+  },
+  {
+    "Id": "SAN",
+    "Code": "SAN",
+    "Type": "SubBusinessLine",
+    "LongName": "CPL Sand Management",
+    "Definition": "CPL Sand Management",
+    "ParentCode": "WPRS",
+    "DVGroup": "CPL"
+  },
+  {
+    "Id": "MSS",
+    "Code": "MSS",
+    "Type": "SubBusinessLine",
+    "LongName": "Multistage Stimulation",
+    "Definition": "Multistage Stimulation",
+    "ParentCode": "WPRS",
+    "DVGroup": "CPL"
+  },
+  {
+    "Id": "TCPL",
+    "Code": "TCPL",
+    "Type": "SubBusinessLine",
+    "LongName": "TLM Completions",
+    "Definition": "TLM Completions",
+    "ParentCode": "WPRS",
+    "DVGroup": "CPL"
+  },
+  {
+    "Id": "C1SUB",
+    "Code": "C1SUB",
+    "Type": "SubBusinessLine",
+    "LongName": "CSUB One Subsea",
+    "Definition": "CSUB One Subsea",
+    "ParentCode": "SSPS",
+    "DVGroup": "CSUB"
+  },
+  {
+    "Id": "SWC",
+    "Code": "SWC",
+    "Type": "SubBusinessLine",
+    "LongName": "Subsea Landing String Services",
+    "Definition": "Subsea Landing String Services",
+    "ParentCode": "SSPS",
+    "DVGroup": "CSUB"
+  },
+  {
+    "Id": "CAMKT",
+    "Code": "CAMKT",
+    "Type": "SubBusinessLine",
+    "LongName": "Cameron V&M Aftermarket",
+    "Definition": "Cameron V&M Aftermarket",
+    "ParentCode": "MPS",
+    "DVGroup": "CVPS"
+  },
+  {
+    "Id": "CVMM",
+    "Code": "CVMM",
+    "Type": "SubBusinessLine",
+    "LongName": "Cameron V&M Measurement",
+    "Definition": "Cameron V&M Measurement",
+    "ParentCode": "MPS",
+    "DVGroup": "CVPS"
+  },
+  {
+    "Id": "CDIST",
+    "Code": "CDIST",
+    "Type": "SubBusinessLine",
+    "LongName": "Cameron Distributed Valves",
+    "Definition": "Cameron Distributed Valves",
+    "ParentCode": "MPS",
+    "DVGroup": "CVPS"
+  },
+  {
+    "Id": "CENG",
+    "Code": "CENG",
+    "Type": "SubBusinessLine",
+    "LongName": "Cameron Engineered Valves",
+    "Definition": "Cameron Engineered Valves",
+    "ParentCode": "MPS",
+    "DVGroup": "CVPS"
+  },
+  {
+    "Id": "OPRS",
+    "Code": "OPRS",
+    "Type": "SubBusinessLine",
+    "LongName": "Cameron Process Products &  Services",
+    "Definition": "Cameron Process Products &  Services",
+    "ParentCode": "MPS",
+    "DVGroup": "CVPS"
+  },
+  {
+    "Id": "CPROC",
+    "Code": "CPROC",
+    "Type": "SubBusinessLine",
+    "LongName": "Cameron Process Valves",
+    "Definition": "Cameron Process Valves",
+    "ParentCode": "MPS",
+    "DVGroup": "CVPS"
+  },
+  {
+    "Id": "CSNS",
+    "Code": "CSNS",
+    "Type": "SubBusinessLine",
+    "LongName": "Sensia JV - Measurement",
+    "Definition": "Sensia JV - Measurement",
+    "ParentCode": "MPS",
+    "DVGroup": "CVPS"
+  },
+  {
+    "Id": "MPT",
+    "Code": "MPT",
+    "Type": "SubBusinessLine",
+    "LongName": "M-I SWACO Production Technologies",
+    "Definition": "M-I SWACO Production Technologies",
+    "ParentCode": "MPS",
+    "DVGroup": "M-I"
+  },
+  {
+    "Id": "EPCC",
+    "Code": "EPCC",
+    "Type": "SubBusinessLine",
+    "LongName": "One Production Facilities subsegment",
+    "Definition": "One Production Facilities subsegment",
+    "ParentCode": "MPS",
+    "DVGroup": "OPF"
+  },
+  {
+    "Id": "ONM",
+    "Code": "ONM",
+    "Type": "SubBusinessLine",
+    "LongName": "O&M Services",
+    "Definition": "O&M Services",
+    "ParentCode": "MPS",
+    "DVGroup": "OPF"
+  },
+  {
+    "Id": "WSS",
+    "Code": "WSS",
+    "Type": "SubBusinessLine",
+    "LongName": "Water Services",
+    "Definition": "Water Services",
+    "ParentCode": "MPS",
+    "DVGroup": "OPF"
+  },
+  {
+    "Id": "SPMAM",
+    "Code": "SPMAM",
+    "Type": "SubBusinessLine",
+    "LongName": "SPM Asset Management People",
+    "Definition": "SPM Asset Management People",
+    "ParentCode": "IRP",
+    "DVGroup": "APS"
+  },
+  {
+    "Id": "SPMGS",
+    "Code": "SPMGS",
+    "Type": "SubBusinessLine",
+    "LongName": "SPM Gainshare",
+    "Definition": "SPM Gainshare",
+    "ParentCode": "IRP",
+    "DVGroup": "APS"
+  },
+  {
+    "Id": "SPMC",
+    "Code": "SPMC",
+    "Type": "SubBusinessLine",
+    "LongName": "Carbon Services",
+    "Definition": "Carbon Services",
+    "ParentCode": "IRP",
+    "DVGroup": "APS"
+  },
+  {
+    "Id": "SPMTP",
+    "Code": "SPMTP",
+    "Type": "SubBusinessLine",
+    "LongName": "SPM Third Party",
+    "Definition": "SPM Third Party",
+    "ParentCode": "IRP",
+    "DVGroup": "APS"
+  },
+  {
+    "Id": "SPME1",
+    "Code": "SPME1",
+    "Type": "SubBusinessLine",
+    "LongName": "SPM Risk Eliminations (Finance use only)",
+    "Definition": "SPM Risk Eliminations (Finance use only)",
+    "ParentCode": "IRP",
+    "DVGroup": "APS"
+  },
+  {
+    "Id": "SPME2",
+    "Code": "SPME2",
+    "Type": "SubBusinessLine",
+    "LongName": "SPM Segment Elimination (Finance use only)",
+    "Definition": "SPM Segment Elimination (Finance use only)",
+    "ParentCode": "IRP",
+    "DVGroup": "APS"
+  },
+  {
+    "Id": "SPMSS",
+    "Code": "SPMSS",
+    "Type": "SubBusinessLine",
+    "LongName": "SPM Service Segment (Finance use only)",
+    "Definition": "SPM Service Segment (Finance use only)",
+    "ParentCode": "IRP",
+    "DVGroup": "APS"
+  },
+  {
+    "Id": "SPSPE",
+    "Code": "SPSPE",
+    "Type": "SubBusinessLine",
+    "LongName": "SPM SS Profit Element (Finance use only)",
+    "Definition": "SPM SS Profit Element (Finance use only)",
+    "ParentCode": "IRP",
+    "DVGroup": "APS"
+  },
+  {
+    "Id": "ISMB",
+    "Code": "ISMB",
+    "Type": "SubBusinessLine",
+    "LongName": "ISM Business Development",
+    "Definition": "ISM Business Development",
+    "ParentCode": "IRP",
+    "DVGroup": "PRSS"
+  },
+  {
+    "Id": "ISMPM",
+    "Code": "ISMPM",
+    "Type": "SubBusinessLine",
+    "LongName": "ISM Project Management",
+    "Definition": "ISM Project Management",
+    "ParentCode": "IRP",
+    "DVGroup": "PRSS"
+  },
+  {
+    "Id": "ISR",
+    "Code": "ISR",
+    "Type": "SubBusinessLine",
+    "LongName": "ISM Water Services",
+    "Definition": "ISM Water Services",
+    "ParentCode": "IRP",
+    "DVGroup": "PRSS"
+  },
+  {
+    "Id": "ISMTP",
+    "Code": "ISMTP",
+    "Type": "SubBusinessLine",
+    "LongName": "ISM Third party",
+    "Definition": "ISM Third party",
+    "ParentCode": "IRP",
+    "DVGroup": "PRSS"
+  },
+  {
+    "Id": "ISME",
+    "Code": "ISME",
+    "Type": "SubBusinessLine",
+    "LongName": "ISM Elims (Finance use only)",
+    "Definition": "ISM Elims (Finance use only)",
+    "ParentCode": "IRP",
+    "DVGroup": "PRSS"
+  },
+  {
+    "Id": "ISMP",
+    "Code": "ISMP",
+    "Type": "SubBusinessLine",
+    "LongName": "ISM Perforamce (Finance use only)",
+    "Definition": "ISM Perforamce (Finance use only)",
+    "ParentCode": "IRP",
+    "DVGroup": "PRSS"
+  },
+  {
+    "Id": "ISMS",
+    "Code": "ISMS",
+    "Type": "SubBusinessLine",
+    "LongName": "ISM Service Segment (Finance use only)",
+    "Definition": "ISM Service Segment (Finance use only)",
+    "ParentCode": "IRP",
+    "DVGroup": "PRSS"
+  },
+  {
+    "Id": "ACS",
+    "Code": "ACS",
+    "Type": "SubBusinessLine",
+    "LongName": "Asset Consulting Services",
+    "Definition": "Asset Consulting Services",
+    "ParentCode": "IRP",
+    "DVGroup": "SIS"
+  },
+  {
+    "Id": "SVCS",
+    "Code": "SVCS",
+    "Type": "SubBusinessLine",
+    "LongName": "SIS Services",
+    "Definition": "SIS Services",
+    "ParentCode": "DSS",
+    "DVGroup": "SIS"
+  },
+  {
+    "Id": "DS",
+    "Code": "DS",
+    "Type": "SubBusinessLine",
+    "LongName": "SIS Data Services",
+    "Definition": "SIS Data Services",
+    "ParentCode": "DSS",
+    "DVGroup": "SIS"
+  },
+  {
+    "Id": "NEXT",
+    "Code": "NEXT",
+    "Type": "SubBusinessLine",
+    "LongName": "SIS NExT",
+    "Definition": "SIS NExT",
+    "ParentCode": "DSS",
+    "DVGroup": "SIS"
+  },
+  {
+    "Id": "PRDS",
+    "Code": "PRDS",
+    "Type": "SubBusinessLine",
+    "LongName": "SIS Product",
+    "Definition": "SIS Product",
+    "ParentCode": "DSS",
+    "DVGroup": "SIS"
+  },
+  {
+    "Id": "PTGS",
+    "Code": "PTGS",
+    "Type": "SubBusinessLine",
+    "LongName": "WG Geosolutions",
+    "Definition": "WG Geosolutions",
+    "ParentCode": "DSS",
+    "DVGroup": "WG"
+  },
+  {
+    "Id": "WGL",
+    "Code": "WGL",
+    "Type": "SubBusinessLine",
+    "LongName": "WG Land",
+    "Definition": "WG Land",
+    "ParentCode": "DSS",
+    "DVGroup": "WG"
+  },
+  {
+    "Id": "WGM",
+    "Code": "WGM",
+    "Type": "SubBusinessLine",
+    "LongName": "WesternGeco Marine",
+    "Definition": "WesternGeco Marine",
+    "ParentCode": "DSS",
+    "DVGroup": "WG"
+  },
+  {
+    "Id": "WGP",
+    "Code": "WGP",
+    "Type": "SubBusinessLine",
+    "LongName": "WG Product Sales",
+    "Definition": "WG Product Sales",
+    "ParentCode": "DSS",
+    "DVGroup": "WG"
+  },
+  {
+    "Id": "SNSS",
+    "Code": "SNSS",
+    "Type": "SubBusinessLine",
+    "LongName": "Sensia JV - SIS",
+    "Definition": "Sensia JV - SIS",
+    "ParentCode": "DOS",
+    "DVGroup": "SIS"
+  },
+  {
+    "Id": "SNSS2",
+    "Code": "SNSS2",
+    "Type": "SubBusinessLine",
+    "LongName": "Sensia JV - SIS (Finance use only)",
+    "Definition": "Sensia JV - SIS (Finance use only)",
+    "ParentCode": "DOS",
+    "DVGroup": "SIS"
+  },
+  {
+    "Id": "SVCO",
+    "Code": "SVCO",
+    "Type": "SubBusinessLine",
+    "LongName": "DOS Services",
+    "Definition": "DOS Services",
+    "ParentCode": "DOS",
+    "DVGroup": "SIS"
+  },
+  {
+    "Id": "PRDO",
+    "Code": "PRDO",
+    "Type": "SubBusinessLine",
+    "LongName": "DOS Products",
+    "Definition": "DOS Products",
+    "ParentCode": "DOS",
+    "DVGroup": "SIS"
+  },
+  {
+    "Id": "SNVAE",
+    "Code": "SNVAE",
+    "Type": "SubBusinessLine",
+    "LongName": "SNV Asset Evaluation Team",
+    "Definition": "SNV Asset Evaluation Team",
+    "ParentCode": "DOS",
+    "DVGroup": "SNV"
+  },
+  {
+    "Id": "AGA",
+    "Code": "AGA",
+    "Type": "SubBusinessLine",
+    "LongName": "Agora Business",
+    "Definition": "Agora Business",
+    "ParentCode": "DOS",
+    "DVGroup": "SNV"
+  },
+  {
+    "Id": "IDSB",
+    "Code": "IDSB",
+    "Type": "SubBusinessLine",
+    "LongName": "IDS Business Development",
+    "Definition": "IDS Business Development",
+    "ParentCode": "IGWC",
+    "DVGroup": "WCSS"
+  },
+  {
+    "Id": "IDPM",
+    "Code": "IDPM",
+    "Type": "SubBusinessLine",
+    "LongName": "IDS Project Management",
+    "Definition": "IDS Project Management",
+    "ParentCode": "IGWC",
+    "DVGroup": "WCSS"
+  },
+  {
+    "Id": "IDST",
+    "Code": "IDST",
+    "Type": "SubBusinessLine",
+    "LongName": "IDS Third Party",
+    "Definition": "IDS Third Party",
+    "ParentCode": "IGWC",
+    "DVGroup": "WCSS"
+  },
+  {
+    "Id": "IDR",
+    "Code": "IDR",
+    "Type": "SubBusinessLine",
+    "LongName": "IDS Water Services",
+    "Definition": "IDS Water Services",
+    "ParentCode": "IGWC",
+    "DVGroup": "WCSS"
+  },
+  {
+    "Id": "IDSE",
+    "Code": "IDSE",
+    "Type": "SubBusinessLine",
+    "LongName": "IDS Elims (Finance use only)",
+    "Definition": "IDS Elims (Finance use only)",
+    "ParentCode": "IGWC",
+    "DVGroup": "WCSS"
+  },
+  {
+    "Id": "IDSP",
+    "Code": "IDSP",
+    "Type": "SubBusinessLine",
+    "LongName": "IDS Perforamce (Finance use only)",
+    "Definition": "IDS Perforamce (Finance use only)",
+    "ParentCode": "IGWC",
+    "DVGroup": "WCSS"
+  },
+  {
+    "Id": "IDSS",
+    "Code": "IDSS",
+    "Type": "SubBusinessLine",
+    "LongName": "IDS Service Segment (Finance use only)",
+    "Definition": "IDS Service Segment (Finance use only)",
+    "ParentCode": "IGWC",
+    "DVGroup": "WCSS"
+  },
+  {
+    "Id": "PTMC",
+    "Code": "PTMC",
+    "Type": "SubBusinessLine",
+    "LongName": "WG Multiclient",
+    "Definition": "WG Multiclient",
+    "ParentCode": "EXD",
+    "DVGroup": "WG"
+  },
+  {
+    "Id": "SMB",
+    "Code": "SMB",
+    "Type": "SubBusinessLine",
+    "LongName": "B&AT Smith Bits",
+    "Definition": "B&AT Smith Bits",
+    "ParentCode": "WCD",
+    "DVGroup": "BDT"
+  },
+  {
+    "Id": "DTSS",
+    "Code": "DTSS",
+    "Type": "SubBusinessLine",
+    "LongName": "Drilling Tools and Services",
+    "Definition": "Drilling Tools and Services",
+    "ParentCode": "WCD",
+    "DVGroup": "BDT"
+  },
+  {
+    "Id": "MOT",
+    "Code": "MOT",
+    "Type": "SubBusinessLine",
+    "LongName": "DTR Motors",
+    "Definition": "DTR Motors",
+    "ParentCode": "WCD",
+    "DVGroup": "BDT"
+  },
+  {
+    "Id": "FIRL",
+    "Code": "FIRL",
+    "Type": "SubBusinessLine",
+    "LongName": "Fishing and Remedial",
+    "Definition": "Fishing and Remedial",
+    "ParentCode": "WCD",
+    "DVGroup": "BDT"
+  },
+  {
+    "Id": "TSP",
+    "Code": "TSP",
+    "Type": "SubBusinessLine",
+    "LongName": "Tubular and Surface Products",
+    "Definition": "Tubular and Surface Products",
+    "ParentCode": "WCD",
+    "DVGroup": "BDT"
+  },
+  {
+    "Id": "EQSL",
+    "Code": "EQSL",
+    "Type": "SubBusinessLine",
+    "LongName": "Equipment Sales",
+    "Definition": "Equipment Sales",
+    "ParentCode": "WCD",
+    "DVGroup": "BDT"
+  },
+  {
+    "Id": "ESFT",
+    "Code": "ESFT",
+    "Type": "SubBusinessLine",
+    "LongName": "Equipment Sales - Fishing & Tubulars",
+    "Definition": "Equipment Sales - Fishing & Tubulars",
+    "ParentCode": "WCD",
+    "DVGroup": "BDT"
+  },
+  {
+    "Id": "BATG",
+    "Code": "BATG",
+    "Type": "SubBusinessLine",
+    "LongName": "B&AT Advanced Technology",
+    "Definition": "B&AT Advanced Technology",
+    "ParentCode": "WCD",
+    "DVGroup": "BDT"
+  },
+  {
+    "Id": "TBDT",
+    "Code": "TBDT",
+    "Type": "SubBusinessLine",
+    "LongName": "TLM Bits and Drilling Tools",
+    "Definition": "TLM Bits and Drilling Tools",
+    "ParentCode": "WCD",
+    "DVGroup": "BDT"
+  },
+  {
+    "Id": "KMT",
+    "Code": "KMT",
+    "Type": "SubBusinessLine",
+    "LongName": "K&M Technology Group",
+    "Definition": "K&M Technology Group",
+    "ParentCode": "WCD",
+    "DVGroup": "DBM"
+  },
+  {
+    "Id": "PCSB",
+    "Code": "PCSB",
+    "Type": "SubBusinessLine",
+    "LongName": "Pacesetter Business",
+    "Definition": "Pacesetter Business",
+    "ParentCode": "WCD",
+    "DVGroup": "DBM"
+  },
+  {
+    "Id": "DBMRB",
+    "Code": "DBMRB",
+    "Type": "SubBusinessLine",
+    "LongName": "Regional Businesses",
+    "Definition": "Regional Businesses",
+    "ParentCode": "WCD",
+    "DVGroup": "DBM"
+  },
+  {
+    "Id": "SLID",
+    "Code": "SLID",
+    "Type": "SubBusinessLine",
+    "LongName": "Slider",
+    "Definition": "Slider",
+    "ParentCode": "WCD",
+    "DVGroup": "DBM"
+  },
+  {
+    "Id": "XERB",
+    "Code": "XERB",
+    "Type": "SubBusinessLine",
+    "LongName": "XER Business",
+    "Definition": "XER Business",
+    "ParentCode": "WCD",
+    "DVGroup": "DBM"
+  },
+  {
+    "Id": "XTRE",
+    "Code": "XTRE",
+    "Type": "SubBusinessLine",
+    "LongName": "Extreme Engineering",
+    "Definition": "Extreme Engineering",
+    "ParentCode": "WCD",
+    "DVGroup": "DBM"
+  },
+  {
+    "Id": "CDLGT",
+    "Code": "CDLGT",
+    "Type": "SubBusinessLine",
+    "LongName": "CDLG Drilling and Test",
+    "Definition": "CDLG Drilling and Test",
+    "ParentCode": "WCE",
+    "DVGroup": "CDLG"
+  },
+  {
+    "Id": "CFLC",
+    "Code": "CFLC",
+    "Type": "SubBusinessLine",
+    "LongName": "Cameron Flow Control",
+    "Definition": "Cameron Flow Control",
+    "ParentCode": "WCE",
+    "DVGroup": "CDLG"
+  },
+  {
+    "Id": "MIDPM",
+    "Code": "MIDPM",
+    "Type": "SubBusinessLine",
+    "LongName": "M-I SWACO Dynamic Pressure Management",
+    "Definition": "M-I SWACO Dynamic Pressure Management",
+    "ParentCode": "WCE",
+    "DVGroup": "M-I"
+  },
+  {
+    "Id": "MES",
+    "Code": "MES",
+    "Type": "SubBusinessLine",
+    "LongName": "M-I SWACO Environmental Solutions",
+    "Definition": "M-I SWACO Environmental Solutions",
+    "ParentCode": "WCE",
+    "DVGroup": "M-I"
+  },
+  {
+    "Id": "MSI",
+    "Code": "MSI",
+    "Type": "SubBusinessLine",
+    "LongName": "Sweco Industrial",
+    "Definition": "Sweco Industrial",
+    "ParentCode": "WCE",
+    "DVGroup": "M-I"
+  },
+  {
+    "Id": "MIRS",
+    "Code": "MIRS",
+    "Type": "SubBusinessLine",
+    "LongName": "M-I Maintenance/Repair Shop",
+    "Definition": "M-I Maintenance/Repair Shop",
+    "ParentCode": "WCE",
+    "DVGroup": "M-I"
+  },
+  {
+    "Id": "TMI",
+    "Code": "TMI",
+    "Type": "SubBusinessLine",
+    "LongName": "TLM M-I SWACO",
+    "Definition": "TLM M-I SWACO",
+    "ParentCode": "WCE",
+    "DVGroup": "M-I"
+  },
+  {
+    "Id": "WBPE",
+    "Code": "WBPE",
+    "Type": "SubBusinessLine",
+    "LongName": "Wellbore Productivity Equipment",
+    "Definition": "Wellbore Productivity Equipment",
+    "ParentCode": "WCE",
+    "DVGroup": "M-I"
+  },
+  {
+    "Id": "RMG",
+    "Code": "RMG",
+    "Type": "SubBusinessLine",
+    "LongName": "SLR Rig Management",
+    "Definition": "SLR Rig Management",
+    "ParentCode": "WCE",
+    "DVGroup": "SLR"
+  },
+  {
+    "Id": "SRS",
+    "Code": "SRS",
+    "Type": "SubBusinessLine",
+    "LongName": "SLR Saxon Rig Services",
+    "Definition": "SLR Saxon Rig Services",
+    "ParentCode": "WCE",
+    "DVGroup": "SLR"
+  },
+  {
+    "Id": "ROF",
+    "Code": "ROF",
+    "Type": "SubBusinessLine",
+    "LongName": "SLR Technology",
+    "Definition": "SLR Technology",
+    "ParentCode": "WCE",
+    "DVGroup": "SLR"
+  },
+  {
+    "Id": "TSLR",
+    "Code": "TSLR",
+    "Type": "SubBusinessLine",
+    "LongName": "TLM Rig Performance Technologies",
+    "Definition": "TLM Rig Performance Technologies",
+    "ParentCode": "WCE",
+    "DVGroup": "SLR"
+  },
+  {
+    "Id": "DMHT",
+    "Code": "DMHT",
+    "Type": "SubBusinessLine",
+    "LongName": "D&M High Tier",
+    "Definition": "D&M High Tier",
+    "ParentCode": "WCM",
+    "DVGroup": "DBM"
+  },
+  {
+    "Id": "DMHV",
+    "Code": "DMHV",
+    "Type": "SubBusinessLine",
+    "LongName": "D&M High Volume",
+    "Definition": "D&M High Volume",
+    "ParentCode": "WCM",
+    "DVGroup": "DBM"
+  },
+  {
+    "Id": "TDBM",
+    "Code": "TDBM",
+    "Type": "SubBusinessLine",
+    "LongName": "TLM DBM",
+    "Definition": "TLM DBM",
+    "ParentCode": "WCM",
+    "DVGroup": "DBM"
+  },
+  {
+    "Id": "GSS",
+    "Code": "GSS",
+    "Type": "SubBusinessLine",
+    "LongName": "Geoservices",
+    "Definition": "Geoservices",
+    "ParentCode": "WCM",
+    "DVGroup": "DBM"
+  },
+  {
+    "Id": "MDS",
+    "Code": "MDS",
+    "Type": "SubBusinessLine",
+    "LongName": "M-I SWACO Drilling Solutions",
+    "Definition": "M-I SWACO Drilling Solutions",
+    "ParentCode": "WCF",
+    "DVGroup": "M-I"
+  },
+  {
+    "Id": "MXTRE",
+    "Code": "MXTRE",
+    "Type": "SubBusinessLine",
+    "LongName": "M-I Extreme",
+    "Definition": "M-I Extreme",
+    "ParentCode": "WCF",
+    "DVGroup": "M-I"
+  },
+  {
+    "Id": "WBPC",
+    "Code": "WBPC",
+    "Type": "SubBusinessLine",
+    "LongName": "Wellbore Productivity Chemicals",
+    "Definition": "Wellbore Productivity Chemicals",
+    "ParentCode": "WCF",
+    "DVGroup": "M-I"
+  },
+  {
+    "Id": "WIT",
+    "Code": "WIT",
+    "Type": "SubBusinessLine",
+    "LongName": "WS Well Integrity",
+    "Definition": "WS Well Integrity",
+    "ParentCode": "WCF",
+    "DVGroup": "WS"
+  },
+  {
+    "Id": "IFS",
+    "Code": "IFS",
+    "Type": "SubBusinessLine",
+    "LongName": "Integrated Frac Services",
+    "Definition": "Integrated Frac Services",
+    "ParentCode": "RPS",
+    "DVGroup": "PRSS"
+  },
+  {
+    "Id": "TWS",
+    "Code": "TWS",
+    "Type": "SubBusinessLine",
+    "LongName": "TLM Well Services",
+    "Definition": "TLM Well Services",
+    "ParentCode": "RPS",
+    "DVGroup": "WS"
+  },
+  {
+    "Id": "WPS",
+    "Code": "WPS",
+    "Type": "SubBusinessLine",
+    "LongName": "WS Production Services",
+    "Definition": "WS Production Services",
+    "ParentCode": "RPS",
+    "DVGroup": "WS"
+  },
+  {
+    "Id": "PDP",
+    "Code": "PDP",
+    "Type": "SubBusinessLine",
+    "LongName": "Pump Down Perforating",
+    "Definition": "Pump Down Perforating",
+    "ParentCode": "RPS",
+    "DVGroup": "WS"
+  },
+  {
+    "Id": "TTPS",
+    "Code": "TTPS",
+    "Type": "SubBusinessLine",
+    "LongName": "TLM Testing Services",
+    "Definition": "TLM Testing Services",
+    "ParentCode": "RPI",
+    "DVGroup": "TS"
+  },
+  {
+    "Id": "PSV",
+    "Code": "PSV",
+    "Type": "SubBusinessLine",
+    "LongName": "TS Production Testing",
+    "Definition": "TS Production Testing",
+    "ParentCode": "RPI",
+    "DVGroup": "TS"
+  },
+  {
+    "Id": "TSW",
+    "Code": "TSW",
+    "Type": "SubBusinessLine",
+    "LongName": "TS Surface Testing",
+    "Definition": "TS Surface Testing",
+    "ParentCode": "RPI",
+    "DVGroup": "TS"
+  },
+  {
+    "Id": "TCPF",
+    "Code": "TCPF",
+    "Type": "SubBusinessLine",
+    "LongName": "TCP - Tubing-Conveyed Perforation",
+    "Definition": "TCP - Tubing-Conveyed Perforation",
+    "ParentCode": "RPI",
+    "DVGroup": "TS"
+  },
+  {
+    "Id": "OPMS",
+    "Code": "OPMS",
+    "Type": "SubBusinessLine",
+    "LongName": "Open Market Sales",
+    "Definition": "Open Market Sales",
+    "ParentCode": "RPI",
+    "DVGroup": "WL"
+  },
+  {
+    "Id": "SLKN",
+    "Code": "SLKN",
+    "Type": "SubBusinessLine",
+    "LongName": "Wireline Slickline",
+    "Definition": "Wireline Slickline",
+    "ParentCode": "RPI",
+    "DVGroup": "WL"
+  },
+  {
+    "Id": "WLPS",
+    "Code": "WLPS",
+    "Type": "SubBusinessLine",
+    "LongName": "WL Production Services",
+    "Definition": "WL Production Services",
+    "ParentCode": "RPI",
+    "DVGroup": "WL"
+  },
+  {
+    "Id": "WIS",
+    "Code": "WIS",
+    "Type": "SubBusinessLine",
+    "LongName": "WS Well Intervention",
+    "Definition": "WS Well Intervention",
+    "ParentCode": "RPI",
+    "DVGroup": "WS"
+  },
+  {
+    "Id": "XCS",
+    "Code": "XCS",
+    "Type": "SubBusinessLine",
+    "LongName": "Xtreme Coil Services",
+    "Definition": "Xtreme Coil Services",
+    "ParentCode": "RPI",
+    "DVGroup": "WS"
+  },
+  {
+    "Id": "DHT",
+    "Code": "DHT",
+    "Type": "SubBusinessLine",
+    "LongName": "TS Downhole Reservoir Testing",
+    "Definition": "TS Downhole Reservoir Testing",
+    "ParentCode": "RPE",
+    "DVGroup": "TS"
+  },
+  {
+    "Id": "LABR",
+    "Code": "LABR",
+    "Type": "SubBusinessLine",
+    "LongName": "TS Laboratories",
+    "Definition": "TS Laboratories",
+    "ParentCode": "RPE",
+    "DVGroup": "TS"
+  },
+  {
+    "Id": "WLES",
+    "Code": "WLES",
+    "Type": "SubBusinessLine",
+    "LongName": "WL Evaluation Services",
+    "Definition": "WL Evaluation Services",
+    "ParentCode": "RPE",
+    "DVGroup": "WL"
+  },
+  {
+    "Id": "TWL",
+    "Code": "TWL",
+    "Type": "SubBusinessLine",
+    "LongName": "TLM Wireline",
+    "Definition": "TLM Wireline",
+    "ParentCode": "RPE",
+    "DVGroup": "WL"
+  },
+  {
+    "Id": "WLEL",
+    "Code": "WLEL",
+    "Type": "SubBusinessLine",
+    "LongName": "WL Equipment Lease",
+    "Definition": "WL Equipment Lease",
+    "ParentCode": "RPE",
+    "DVGroup": "WL"
+  }
+]

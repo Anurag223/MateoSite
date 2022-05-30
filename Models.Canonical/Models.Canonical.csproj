@@ -1,0 +1,48 @@
+﻿ <Project Sdk="Microsoft.NET.Sdk"> 
+
+  <PropertyGroup>
+    <!--
+    We want to be as strict as possible on warnings, so we will treat them as errors. Why? Because
+    warnings in the right circumstances (runtime or compiletime) can *actually* be errors (or bugs).
+    -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <!--
+    That said, these warnings regarding versioning and obsolesence tend to be too noisy
+    -->
+    <NoWarn>1701;1702;1591;NU1605;S4823</NoWarn>
+
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>Tlm.Fed.Models.Canonical</AssemblyName>
+    <RootNamespace>Tlm.Fed.Models.Canonical</RootNamespace>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+	<!-- SonarQube needs this -->
+	 <ProjectGuid>{AC2ED6EA-F648-451E-86AD-B60617163B42}</ProjectGuid>
+    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Tlm.Sdk.Core" Version="13.0.2" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+     <ProjectReference Include="..\Models.CrossDomain\Models.CrossDomain.csproj" />
+  </ItemGroup>
+  
+  <PropertyGroup>
+    <!-- Exclude the project from analysis -->
+    <SonarQubeExclude>true</SonarQubeExclude>
+  </PropertyGroup>
+
+</Project>

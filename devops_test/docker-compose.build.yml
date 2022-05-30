@@ -1,0 +1,23 @@
+version: '2.2'
+
+services:
+  
+  adapters.maximo.site:
+    image: azr6382cr01.azurecr.io/mateo2test/adapters.site.maximo:${IMAGE_TAG}
+    container_name: mateo2.adapters.maximo.site
+
+  adapters.rite.site:
+    image: azr6382cr01.azurecr.io/mateo2test/adapters.site.rite:${IMAGE_TAG}
+    container_name: mateo2.adapters.rite.site
+  
+  adapters.qtrac.site:
+    image: azr6382cr01.azurecr.io/mateo2test/adapters.site.qtrac:${IMAGE_TAG}
+    container_name: mateo2.adapters.qtrac.site
+  
+  site.api:
+    image: azr6382cr01.azurecr.io/mateo2test/site.api:${IMAGE_TAG}
+    container_name: mateo2.site.api
+  
+  site.composer:
+    image: azr6382cr01.azurecr.io/mateo2test/site.composer:${IMAGE_TAG}
+    container_name: mateo2.site.composer

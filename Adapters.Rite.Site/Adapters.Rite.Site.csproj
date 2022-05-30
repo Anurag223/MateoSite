@@ -1,0 +1,44 @@
+﻿ <Project Sdk="Microsoft.NET.Sdk.Web"> 
+
+  <PropertyGroup>
+    <!--
+    We want to be as strict as possible on warnings, so we will treat them as errors. Why? Because
+    warnings in the right circumstances (runtime or compiletime) can *actually* be errors (or bugs).
+    -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <!--
+    That said, these warnings regarding versioning and obsolesence tend to be too noisy
+    -->
+    <NoWarn>1701;1702;1591;NU1605;S4823</NoWarn>
+
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>Tlm.Fed.Adapters.Rite.Site</AssemblyName>
+    <RootNamespace>Tlm.Fed.Adapters.Rite.Site</RootNamespace>
+    <!--https://stackoverflow.com/questions/46048445/how-do-i-reduce-memory-usage-for-net-core-docker-containers -->
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+    <!-- SonarQube needs this -->
+     <ProjectGuid>{ED331FF7-1908-4E86-BE95-BD11B222BFB3}</ProjectGuid>
+    <UserSecretsId>cfd49e14-1bf5-4494-9115-c0a15c19daf9</UserSecretsId>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+  </PropertyGroup>
+    <PropertyGroup>
+    <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.1.19" />
+    <PackageReference Include="Serilog.Sinks.AzureAnalytics" Version="4.7.0" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+     <ProjectReference Include="..\Adapters.Rite.Common\Adapters.Rite.Common.csproj" />
+     <ProjectReference Include="..\Contexts.Site.Core\Contexts.Site.Core.csproj" />
+  </ItemGroup>
+
+</Project>

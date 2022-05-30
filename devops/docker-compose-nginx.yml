@@ -1,0 +1,17 @@
+version: '2.4'
+
+services:
+  mateo2.nginx:
+    networks:
+      - tlm.fed.net
+    hostname: mateo2.nginx    
+    container_name: mateo2.nginx
+    image: nginx2
+    ports:
+      - "8080:80"
+    volumes:    
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+
+networks:
+  tlm.fed.net:
+    driver: bridge      

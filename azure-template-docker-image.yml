@@ -1,0 +1,33 @@
+parameters:
+  projectname: ''
+  imagename: ''
+  NamespaceName: ''
+  RepositoryFolder: 'mateo2'
+  nocache: ''
+
+steps:
+
+  - script: dotnet publish ${{parameters.projectname}}/${{parameters.projectname}}.csproj --configuration $(build.configuration) --output $(Build.SourcesDirectory)/${{parameters.projectname}}/out --no-build
+    displayName: dotnet publish ${{parameters.projectname}}  
+
+  # clean up the container cache before and after the build, so the push operation can see only what was built this time, not previously.
+  - script: docker builder prune
+    displayName: docker builder prune
+    
+  # Build the container image with all necessary tags.
+  - script: docker build $(docker_build_cache) -f ${{parameters.projectname}}/Dockerfile.build -t $(docker.registry)/${{parameters.RepositoryFolder}}/${{parameters.imagename}}:$(Build.SourceBranchName) -t $(docker.registry)/${{parameters.RepositoryFolder}}/${{parameters.imagename}}:$(Build.BuildNumber) .
+    displayName: docker build ${{parameters.imagename}} $(Build.SourceBranchName) $(Build.BuildId) $(Build.BuildNumber)
+
+  # The following steps are disabled for pull requests. And they will run only for specific branches.
+  - ${{ if and(ne(variables['Build.Reason'], 'PullRequest'), or(in(variables['Build.SourceBranch'], 'refs/heads/develop', 'refs/heads/master'), startsWith(variables['Build.SourceBranch'], 'refs/heads/dev/previews'), startsWith(variables['Build.SourceBranch'], 'refs/heads/releases'), startsWith(variables['Build.SourceBranch'], 'refs/heads/sprintreleases'), startsWith(variables['Build.SourceBranch'], 'refs/heads/features'))) }}:
+
+      - script: docker login -u $(docker.id) -p $(docker.password) $(docker.registry)
+        displayName: docker login
+          
+      # Push the container image into the remote registry, with all tags available.
+      - script: docker push $(docker.registry)/${{parameters.RepositoryFolder}}/${{parameters.imagename}}
+        displayName: docker push $(docker.registry)/${{parameters.RepositoryFolder}}/${{parameters.imagename}}
+    
+  # clean up the container cache before and after the build, so the push operation can see only what was built this time, not previously.
+  - script: docker builder prune
+    displayName: docker builder prune

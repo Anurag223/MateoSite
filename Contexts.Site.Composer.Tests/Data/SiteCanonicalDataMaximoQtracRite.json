@@ -1,0 +1,161 @@
+﻿[
+  {
+    "Attributes": [],
+    "UnmanagedAttributes": {},
+    "FacilityId": "1198",
+    "FacilityName": null,
+    "GeoMarketCode": null,
+    "SegmentCode": "WS",
+    "SiteType": "STOREROOM",
+    "SubSites": null,
+    "Code": "1713951",
+    "Description": "S. Marunda, Indonesia - CTS",
+    "Name": "S. Marunda, Indonesia - CTS",
+    "ActiveCmmsId": 2392,
+    "SourceSystemRecordId": "S1713951",
+    "CreatedBy": null,
+    "CreatedDate": "2019-05-29T20:49:35.2255582Z",
+    "ModifiedBy": null,
+    "ModifiedDate": "0001-01-01T00:00:00",
+    "SyncDate": "0001-01-01T00:00:00",
+    "TimeToLiveDate": "0001-01-01T00:00:00",
+    "Id": "2392:S1713951"
+  },
+  {
+    "Attributes": [],
+    "UnmanagedAttributes": {},
+    "FacilityId": "3288",
+    "FacilityName": null,
+    "GeoMarketCode": null,
+    "SegmentCode": "WS",
+    "SiteType": "STOREROOM",
+    "SubSites": null,
+    "Code": "209567",
+    "Description": "S. zz Do Not Use - Angleton, TX - CTS",
+    "Name": "S. zz Do Not Use - Angleton, TX - CTS",
+    "ActiveCmmsId": 2392,
+    "SourceSystemRecordId": "ATXCTS",
+    "CreatedBy": null,
+    "CreatedDate": "2019-05-29T20:49:35.2264015Z",
+    "ModifiedBy": null,
+    "ModifiedDate": "0001-01-01T00:00:00",
+    "SyncDate": "0001-01-01T00:00:00",
+    "TimeToLiveDate": "0001-01-01T00:00:00",
+    "Id": "2392:ATXCTS"
+  },
+  {
+    "Id": "990:ABE",
+    "CreatedBy": "Ezhao",
+    "CreatedDate": "2011-12-06T17:35:34",
+    "ModifiedBy": "datafix_1278862",
+    "ModifiedDate": "2011-12-06T17:35:34",
+    "SyncDate": "2011-12-06T17:35:34",
+    "ActiveCmmsId": 990,
+    "SourceSystemRecordId": "576",
+    "Attributes": [],
+    "UnmanagedAttributes": {
+      "earaa990": {
+        "area": {
+          "name": "area",
+          "uom": null,
+          "value": "EAF"
+        },
+        "ownership": {
+          "name": "ownership",
+          "uom": null,
+          "value": "Leased"
+        },
+        "facility_description": {
+          "name": "facility_description",
+          "uom": null,
+          "value": "Operating Base"
+        },
+        "Facility_status": {
+          "name": "Facility_status",
+          "uom": null,
+          "value": "Active"
+        },
+        "latitude": {
+          "name": "latitude",
+          "uom": null,
+          "value": "57.20073"
+        },
+        "longitude": {
+          "name": "longitude",
+          "uom": null,
+          "value": "-2.21832"
+        }
+      }
+    },
+    "Code": "ABE",
+    "Description": "Aberdeen - PathFinder",
+    "Name": "Aberdeen - PathFinder",
+    "alternateidentities": [],
+    "FacilityId": "30",
+    "FacilityName": "Schlumberger Howemoss Base",
+    "SubGeoMarketCode": "MEM",
+    "GeoMarketCode": "MCA",
+    "SegmentCode": "D&M",
+    "SubBusinessLines": ["DMHT"],
+    "SiteType": "BASE      ",
+    "attribute": null,
+    "CountryCode": null,
+    "City": null,
+    "SubSites": []
+  },
+  {
+    "Id": "880:1141675",
+    "CreatedBy": "VSTS_1437584",
+    "CreatedDate": "2020-09-05T13:23:57",
+    "ModifiedBy": "VSTS_1437584",
+    "ModifiedDate": "2020-09-05T13:23:57",
+    "SyncDate": "2020-09-05T13:23:57",
+    "ActiveCmmsId": 880,
+    "SourceSystemRecordId": "1141675",
+    "Attributes": [],
+    "UnmanagedAttributes": {
+      "earaa880": {
+        "area": {
+          "name": "area",
+          "uom": null,
+          "value": "OAT"
+        },
+        "facility_status": {
+          "name": "Facility_status",
+          "uom": null,
+          "value": "Active All"
+        },
+        "City": {
+          "name": "City",
+          "uom": null,
+          "value": "CM0"
+        },
+        "country": {
+          "name": "country",
+          "uom": null,
+          "value": "AE"
+        },
+        "location": {
+          "name": "location",
+          "uom": null,
+          "value": "AECM"
+        }
+      }
+    },
+    "Code": "1141675",
+    "Description": "UAE Sales to Cameroon ACA",
+    "Name": "AECM-ACA",
+    "alternateidentities": [],
+    "FacilityId": null,
+    "FacilityName": null,
+    "SubGeoMarketCode": "VEN",
+    "GeoMarketCode": "MCA",
+    "SegmentCode": "ALS",
+    "SubBusinessLines": ["ESP"],
+    "SiteType": null,
+    "attribute": null,
+    "CountryCode": "AE",
+    "City": "CM0",
+    "SubSites": null
+  }
+]

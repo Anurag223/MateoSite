@@ -1,0 +1,26 @@
+{
+  // This is only meant for manual tests or for tests that are slightly more "involved" than
+  // unit tests in that they require some config settings, but not "real" ones. Examples of
+  // these kinds of unit tests are tests that test the instantiatiation of major components
+  // of a microservice, but don't really require us to access dependencies such as a database
+  // or a messaging system. For those kinds of tests, add this file as a link and configure
+  // the container builder to use it. For example see ApiUnitTestUtils.TryInstantiateController()
+  // ====================================================================================
+  "RootConfig:Repository:FullConnectionString": "mongodb://localhost:7017",
+  "RootConfig:Repository:ConnectionString": "mongodb://localhost:7017",
+  "RootConfig:Repository:Username": null,
+  "RootConfig:Repository:Password": null,
+  "RootConfig:HostingConfig:InternalBaseUrl": "http://localhost:5680",
+  "RootConfig:Eventing:Host": "localhost",
+  "RootConfig:Eventing:UserName": "mateo2",
+  "RootConfig:Eventing:Password": "REDACTED",
+  "RootConfig:Eventing:VirtualHost": "mateo2",
+  "RootConfig:Eventing:Port": 5682,
+  "RootConfig:Eventing:ManagementPort": 15682,
+  "RootConfig:Eventing:PasswordForTest": "REDACTED",
+  "RootConfig:Eventing:OptionalMessagesPublishingBehavior": "Ignore",
+  "RootConfig:Eventing:PrefetchCount": 1,
+  "RootConfig:Eventing:ConcurrencyLimit": 1,
+  "RootConfig:Eventing:QueueName": "FAKEQUEUENAME",
+  "RootConfig:Eventing:DeferStart": true
+}

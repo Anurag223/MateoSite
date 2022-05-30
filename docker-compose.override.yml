@@ -1,0 +1,74 @@
+version: '2.4'
+
+services:
+#------------------------------------------------------------------------------
+# Non-Mateo Services (dependencies)
+#------------------------------------------------------------------------------
+  
+  mateo2.nosql:
+    env_file: .env
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    ports:
+      - "27017:27017"
+
+  mateo.queue:
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+#------------------------------------------------------------------------------
+# Adapters (these are independent of bounded context, but access the BC
+# repositories to store data from a CMMS)
+#------------------------------------------------------------------------------
+  #----------------- SAP
+
+
+  #----------------- Maximo
+
+
+
+  #----------------- QTrac
+
+  adapters.qtrac.site:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Local
+      - USER_SECRETS_ID=$USER_SECRETS_ID
+    ports:
+      - "8118:80"
+    volumes:
+      - $APPDATA/Microsoft/UserSecrets/$USER_SECRETS_ID:/root/.microsoft/usersecrets/$USER_SECRETS_ID
+
+  #----------------- RITE
+
+  adapters.rite.site:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Local
+      - USER_SECRETS_ID=$USER_SECRETS_ID
+    ports:
+      - "8097:80"
+    volumes:
+      - $APPDATA/Microsoft/UserSecrets/$USER_SECRETS_ID:/root/.microsoft/usersecrets/$USER_SECRETS_ID
+     
+#------------------------------------------------------------------------------
+# Site Bounded Context
+#------------------------------------------------------------------------------
+
+  site.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Local
+      - USER_SECRETS_ID=$USER_SECRETS_ID
+    ports:
+      - "8087:80"
+    volumes:
+      - $APPDATA/Microsoft/UserSecrets/$USER_SECRETS_ID:/root/.microsoft/usersecrets/$USER_SECRETS_ID
+
+  site.composer:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Local
+      - USER_SECRETS_ID=$USER_SECRETS_ID
+    ports:
+      - "8088:80"
+    volumes:
+      - $APPDATA/Microsoft/UserSecrets/$USER_SECRETS_ID:/root/.microsoft/usersecrets/$USER_SECRETS_ID

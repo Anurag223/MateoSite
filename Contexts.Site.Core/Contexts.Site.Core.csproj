@@ -1,0 +1,50 @@
+﻿ <Project Sdk="Microsoft.NET.Sdk"> 
+
+  <PropertyGroup>
+    <!--
+    We want to be as strict as possible on warnings, so we will treat them as errors. Why? Because
+    warnings in the right circumstances (runtime or compiletime) can *actually* be errors (or bugs).
+    -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <!--
+    That said, these warnings regarding versioning and obsolesence tend to be too noisy
+    -->
+    <NoWarn>1701;1702;1591;NU1605;S4823</NoWarn>
+
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>Tlm.Fed.Contexts.Site.Core</AssemblyName>
+    <RootNamespace>Tlm.Fed.Contexts.Site.Core</RootNamespace>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+	<!-- SonarQube needs this -->
+	 <ProjectGuid>{117942B5-EDE5-44C9-A940-DF8DDD7B3065}</ProjectGuid>
+    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+  </PropertyGroup>
+    <PropertyGroup>
+    <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Serilog.Sinks.AzureAnalytics" Version="4.7.0" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+     <ProjectReference Include="..\Models.Canonical\Models.Canonical.csproj" />
+  </ItemGroup>
+
+  <Target Name="BeforeBuild">
+    <ItemGroup>
+      <SonarQubeSetting Include="sonar.exclusions">
+        <Value>**/RepresentationModel/*</Value>
+      </SonarQubeSetting>
+    </ItemGroup>
+  </Target>
+
+</Project>

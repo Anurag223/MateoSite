@@ -1,0 +1,15 @@
+{
+  "solution": {
+    "path": "Mateo.sln",
+    "projects": [
+      "Contexts.Common\\Contexts.Common.csproj",
+      "Contexts.Equipment.Core\\Contexts.Equipment.Core.csproj",
+      "Framework.ApiSupport\\Framework.ApiSupport.csproj",
+      "Framework.Api\\Framework.Api.csproj",
+      "Framework.Common\\Framework.Common.csproj",
+      "Framework.Core\\Framework.Core.csproj",
+      "Models.Canonical\\Models.Canonical.csproj",
+      "Models.CrossDomain\\Models.CrossDomain.csproj"
+    ]
+  }
+}

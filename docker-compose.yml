@@ -1,0 +1,112 @@
+version: '2.4'
+
+volumes:
+  mateo2volume:
+    driver: local
+  nosql_data:
+    driver: local
+
+networks:
+  tlm.fed.net:
+    driver: bridge
+
+services:
+#------------------------------------------------------------------------------
+# Non-Mateo Services (dependencies)
+#------------------------------------------------------------------------------
+
+  mateo2.nosql:
+    networks:
+      - tlm.fed.net
+    hostname: mateo2.nosql
+    container_name: mateo2.nosql
+    image: "mongo:4-xenial"
+    command: "--replSet rs0"
+    volumes:
+      - nosql_data:/data/db
+
+  mateo.queue:
+    networks:
+      - tlm.fed.net
+    hostname: mateo.queue    
+    container_name: mateo.queue
+    image: "rabbitmq:3-management"
+    volumes:
+      - mateo2volume:/var/lib/rabbitmq
+      - ./devops/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+      - ./devops/rabbitmq/definitions.json:/etc/rabbitmq/definitions.json
+  
+  mongo-init-replica-set:
+    image: "mongo:4-xenial"
+    command: bash -c 'sleep 4; until  mongo --host mateo2.nosql --eval "rs.initiate()"; do sleep 1; done'
+    depends_on: 
+      - mateo2.nosql
+
+#------------------------------------------------------------------------------
+# Adapters (these are independent of bounded context, but access the BC
+# repositories to store data from a CMMS)
+#------------------------------------------------------------------------------
+
+  #----------------- SAP
+
+
+  #----------------- Maximo
+
+ 
+
+  #----------------- QTrac
+
+  adapters.qtrac.site:
+    image: mateo2.adapters.qtrac.site
+    container_name: mateo2.adapters.qtrac.site
+    build:
+      context: .
+      dockerfile: Adapters.Qtrac.Site/Dockerfile
+    networks:
+      - tlm.fed.net
+    depends_on:
+      - mateo.queue
+      - mateo2.nosql
+
+  #----------------- RITE
+
+  adapters.rite.site:
+    image: mateo2.adapters.rite.site
+    container_name: mateo2.adapters.rite.site
+    build:
+      context: .
+      dockerfile: Adapters.Rite.Site/Dockerfile
+    networks:
+      - tlm.fed.net
+    depends_on:
+      - mateo.queue
+      - mateo2.nosql
+     
+#------------------------------------------------------------------------------
+# Site Bounded Context
+#------------------------------------------------------------------------------
+
+  site.api:
+    image: mateo2.site.api
+    container_name: mateo2.site.api
+    build:
+      context: .
+      dockerfile: Contexts.Site.API/Dockerfile
+    networks:
+      - tlm.fed.net
+    depends_on:
+      - mateo.queue
+      - mateo2.nosql
+
+  site.composer:
+    image: mateo2.site.composer
+    container_name: mateo2.site.composer
+    hostname: site.composer
+    build:
+      context: .
+      dockerfile: Contexts.Site.Composer/Dockerfile 
+    networks:
+      - tlm.fed.net
+    depends_on:
+      - mateo.queue
+      - mateo2.nosql

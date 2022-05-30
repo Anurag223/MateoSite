@@ -1,0 +1,71 @@
+﻿ <Project Sdk="Microsoft.NET.Sdk"> 
+
+  <PropertyGroup>
+    <!--
+    We want to be as strict as possible on warnings, so we will treat them as errors. Why? Because
+    warnings in the right circumstances (runtime or compiletime) can *actually* be errors (or bugs).
+    -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <!--
+    That said, these warnings regarding versioning and obsolesence tend to be too noisy
+    -->
+    <NoWarn>1701;1702;1591;NU1605;S4823</NoWarn>
+    <LangVersion>latest</LangVersion>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+    <!-- SonarQube needs this -->
+    <ProjectGuid>{80BF37D2-EF4D-4031-A3DB-A367676534F4}</ProjectGuid>
+    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+  </PropertyGroup> 
+    <PropertyGroup>
+    <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Data\SAPSiteServiceCanonical.json" />
+    <None Remove="Data\SAPSiteServiceResponse.json" />
+  </ItemGroup> 
+
+  <ItemGroup>
+    <Content Include="Data\SAPSiteServiceCanonical.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\SAPSiteServiceResponse.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.1.19" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="Moq" Version="4.16.1" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.7" />
+    <PackageReference Include="coverlet.msbuild" Version="3.1.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.7" />
+    <PackageReference Include="Tlm.Sdk.Testing.Unit" Version="13.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <Content Include="..\testsettings.shared.json" Link="testsettings.shared.json">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+     <ProjectReference Include="..\Adapters.SAP.Site\Adapters.SAP.Site.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="testsettings.shared.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <!-- Mark the project as being a test project -->
+    <SonarQubeTestProject>true</SonarQubeTestProject>
+  </PropertyGroup>
+</Project>

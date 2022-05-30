@@ -1,0 +1,19 @@
+﻿{
+  "Serilog": {
+	"MinimumLevel": {
+	  "Default": "Debug",
+	  "Override": {
+	  "Microsoft": "Information",
+	  "System": "Information"
+	  }
+	},
+	"WriteTo": [
+	  {
+		"Name": "RollingFile",
+		"Args": {
+		  "pathFormat": "/app/Logs/Site_Composer_{Date}.log"
+		}
+	  }
+	]
+  }
+}

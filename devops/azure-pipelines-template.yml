@@ -1,0 +1,43 @@
+
+pool:
+  name: '$(azure_pool_name)'
+
+  # 1. Create a copy of this file for your microservice. 
+  # 2. Name convention azure-pipelines-<your-microservice-name>.yaml
+  # 3. Modify trigger:path:include and add all the source braches your MS depends on
+  # 4. Create a new Azure DevOps build from this file;
+  # 5. Variables -> Variable groups-> Link Variable group -> Select 'Mateo2 microservice'; 
+  # 6. 'image.name' = <name of your docker image> without tags and registry
+  # 7. 'project.name' = <name of your VS project> without .csproj
+  # 8. Name the build like '<project-namespace-name>-CI'
+  # 9. Create a copy of Dockerfile.build.template into your MS root folder and modify it
+variables:
+  projectName2: '<name of your VS project> without .csproj>'
+
+trigger:
+  batch: false
+  branches:
+    include:
+    - '<Git branch>'
+  paths:
+    include: 
+    - <Git sobfolders>
+
+resources:
+  repositories:
+  - repository: templates
+    type: git
+    name: 'es-TLM-FMP-Infrastructure'
+    ref: refs/heads/develop
+
+variables:
+- group: 'Mateo2 microservice'
+- group: 'Mateo2 Build common'
+
+steps:
+- template: 'templates/azure-pipelines-steps.yml@templates'
+  parameters:
+    projectname: projectName2
+    imagename: '<name of your docker image>'
+    NamespaceName: '<namespace>'
+    

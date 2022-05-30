@@ -1,0 +1,14 @@
+﻿FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-bionic AS base
+
+ADD /devops/certs/CA1.crt /usr/local/share/ca-certificates/CA1.crt
+ADD /devops/certs/CA2.crt /usr/local/share/ca-certificates/CA2.crt
+ADD /devops/certs/Root.crt /usr/local/share/ca-certificates/Root.crt
+RUN cd /usr/local/share/ca-certificates && update-ca-certificates
+
+WORKDIR /app
+EXPOSE 80
+
+# Copy files from the artifact staging folder on agent
+COPY Adapters.Qtrac.Site/out .
+
+ENTRYPOINT ["dotnet", "Tlm.Fed.Adapters.Qtrac.Site.dll"]

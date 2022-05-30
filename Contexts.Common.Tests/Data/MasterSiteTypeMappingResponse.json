@@ -1,0 +1,237 @@
+{
+  "collection": [
+    {
+      "id": "WORKSTATION",
+      "createdDate": "2021-06-07T09:07:07.893Z",
+      "createdBy": "TLM",
+      "modifiedDate": "2021-06-07T09:07:07.893Z",
+      "modifiedBy": "TLM",
+      "code": "WORKSTATION",
+      "name": "WorkStation",
+      "description": "NA",
+      "cmmsMapping": {
+        "2392": [
+          {
+            "code": "DEPOT",
+            "name": "DEPOT",
+            "description": "NA"
+          },
+          {
+            "code": "HOLDING",
+            "name": "HOLDING",
+            "description": "NA"
+          }
+        ]
+      }
+    },
+    {
+      "id": "OPERATIONS",
+      "createdDate": "2021-06-07T09:07:07.893Z",
+      "createdBy": "TLM",
+      "modifiedDate": "2021-06-07T09:07:07.893Z",
+      "modifiedBy": "TLM",
+      "code": "OPERATIONS",
+      "name": "Operations",
+      "description": "NA",
+      "cmmsMapping": {
+        "880": [
+          {
+            "code": "MAINT",
+            "name": "MAINT",
+            "description": "NA"
+          }
+        ],
+        "990": [
+          {
+            "code": "MB",
+            "name": "MB",
+            "description": "NA"
+          }
+        ],
+        "2392": [
+          {
+            "code": "LABOR",
+            "name": "LABOR",
+            "description": "NA"
+          },
+          {
+            "code": "OPERATING",
+            "name": "OPERATING",
+            "description": "NA"
+          },
+          {
+            "code": "REPAIR",
+            "name": "REPAIR",
+            "description": "NA"
+          }
+        ],
+        "2796": [
+          {
+            "code": "0001",
+            "name": "0001",
+            "description": "Machine"
+          },
+          {
+            "code": "0002",
+            "name": "0002",
+            "description": "State WorkCenter MachineGroup"
+          },
+          {
+            "code": "0003",
+            "name": "0003",
+            "description": "Labor"
+          },
+          {
+            "code": "0004",
+            "name": "0004",
+            "description": "State WorkCenter LaborGroup"
+          },
+          {
+            "code": "0005",
+            "name": "0005",
+            "description": "Plant Maintenance"
+          },
+          {
+            "code": "0006",
+            "name": "0006",
+            "description": "Project Management"
+          },
+          {
+            "code": "0007",
+            "name": "0007",
+            "description": "Production Line"
+          },
+          {
+            "code": "0008",
+            "name": "0008",
+            "description": "Procession Unit"
+          },
+          {
+            "code": "0009",
+            "name": "0009",
+            "description": "Personnel Resource"
+          },
+          {
+            "code": "0010",
+            "name": "0010",
+            "description": "Production Line"
+          },
+          {
+            "code": "0011",
+            "name": "0011",
+            "description": "Zone"
+          },
+          {
+            "code": "0012",
+            "name": "0012",
+            "description": "Station"
+          },
+          {
+            "code": "0014",
+            "name": "0014",
+            "description": "Storage Resource"
+          },
+          {
+            "code": "0015",
+            "name": "0015",
+            "description": "Procession Unit/Store Resources"
+          }
+        ]
+      }
+    },
+    {
+      "id": "WELLSITE",
+      "createdDate": "2021-06-07T09:07:07.893Z",
+      "createdBy": "TLM",
+      "modifiedDate": "2021-06-07T09:07:07.893Z",
+      "modifiedBy": "TLM",
+      "code": "WELLSITE",
+      "name": "WellSite",
+      "description": "NA",
+      "cmmsMapping": {
+        "2392": [
+          {
+            "code": "RIG",
+            "name": "RIG",
+            "description": "NA"
+          }
+        ]
+      }
+    },
+    {
+      "id": "WORKCENTER",
+      "createdDate": "2021-06-07T09:07:07.893Z",
+      "createdBy": "TLM",
+      "modifiedDate": "2021-06-07T09:07:07.893Z",
+      "modifiedBy": "TLM",
+      "code": "WORKCENTER",
+      "name": "WorkCenter",
+      "description": "NA",
+      "cmmsMapping": {
+        "990": [
+          {
+            "code": "BASE",
+            "name": "BASE",
+            "description": "This is dummy description"
+          },
+          {
+            "code": "CE",
+            "name": "CE",
+            "description": "NA"
+          },
+          {
+            "code": "CRE",
+            "name": "CRE",
+            "description": "NA"
+          },
+          {
+            "code": "IAP",
+            "name": "IAP",
+            "description": "NA"
+          }
+        ]
+      }
+    },
+    {
+      "id": "EXTERNAL",
+      "createdDate": "2021-06-07T09:07:07.892Z",
+      "createdBy": "TLM",
+      "modifiedDate": "2021-06-07T09:07:07.892Z",
+      "modifiedBy": "TLM",
+      "code": "EXTERNAL",
+      "name": "External",
+      "description": "NA",
+      "cmmsMapping": {
+        "990": [
+          {
+            "code": "RENTAL",
+            "name": "RENTAL",
+            "description": "NA"
+          }
+        ],
+        "2392": [
+          {
+            "code": "COURIER",
+            "name": "COURIER",
+            "description": "NA"
+          }
+        ]
+      }
+    }
+  ],
+  "links": {
+    "first": {
+      "href":
+        "https://api.dev.tlm.slb.com/api/v2/masterdata/sitetypemapping?page[number]=1&page[size]=25&sort=-ModifiedDate",
+      "rel": "first"
+    },
+    "last": {
+      "href":
+        "https://api.dev.tlm.slb.com/api/v2/masterdata/sitetypemapping?page[number]=1&page[size]=25&sort=-ModifiedDate",
+      "rel": "last"
+    }
+  },
+  "meta": {
+    "totalCount": 5
+  }
+}

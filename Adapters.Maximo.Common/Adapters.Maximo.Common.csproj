@@ -1,0 +1,67 @@
+﻿ <Project Sdk="Microsoft.NET.Sdk"> 
+
+  <PropertyGroup>
+    <!--
+    We want to be as strict as possible on warnings, so we will treat them as errors. Why? Because
+    warnings in the right circumstances (runtime or compiletime) can *actually* be errors (or bugs).
+    -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <!--
+    That said, these warnings regarding versioning and obsolesence tend to be too noisy
+    -->
+    <NoWarn>1701;1702;1591;NU1605;S4823</NoWarn>
+
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Tlm.Fed.Adapters.Maximo.Common</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>Tlm.Fed.Adapters.Maximo.Common</RootNamespace>
+	 <ProjectGuid>{86C3B87C-CF9B-43EB-B16F-7675F59D8EED}</ProjectGuid>
+    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <UserSecretsId>18b2cb7d-8419-4793-b1b1-7c69000d9010</UserSecretsId>
+  </PropertyGroup>
+    <PropertyGroup>
+    <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="IMaximoClientFactory.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Serilog.Sinks.AzureAnalytics" Version="4.7.0" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.8.1" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.8.1" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.8.1" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.8.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.1.19" />
+    <PackageReference Include="Tlm.Fed.Framework.Internal" Version="13.0.2" />
+  </ItemGroup>
+
+	 <!--Added external reference as dotnet runtime includes vulnerability (https://github.com/dotnet/runtime/issues/49377)-->
+	 <ItemGroup>
+		 <PackageReference Include="System.Net.Http" Version="4.3.4" />
+		 <PackageReference Include="System.Text.Encodings.Web" Version="4.5.1" />
+		 <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+	 </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Contexts.Common\Contexts.Common.csproj" />
+  </ItemGroup>
+
+  
+  <Target Name="BeforeBuild">
+    <ItemGroup>
+      <SonarQubeSetting Include="sonar.exclusions">
+        <Value>**/Connected Services/**/*</Value>
+      </SonarQubeSetting>
+    </ItemGroup>
+  </Target>
+
+</Project>

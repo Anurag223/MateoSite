@@ -1,0 +1,11 @@
+﻿FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-bionic AS base
+COPY /Adapters.Maximo.Site/certs_SLB_CA/q1-maximo.crt /Adapters.Maximo.Site/certs_SLB_CA/q2-maximo.crt /devops/certs/CA1.crt /devops/certs/CA2.crt /devops/certs/Root.crt /usr/local/share/ca-certificates/
+RUN cd /usr/local/share/ca-certificates && update-ca-certificates
+
+WORKDIR /app
+EXPOSE 80
+
+# Copy files from the artifact staging folder on agent
+COPY Adapters.Maximo.Site/out .
+
+ENTRYPOINT ["dotnet", "Tlm.Fed.Adapters.Maximo.Site.dll"]
